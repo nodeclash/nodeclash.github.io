@@ -1,4 +1,4 @@
-# 6月24日22.9M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接  更新时间 2024-06-24 10:45:05
+# 6月25日21.7M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接  更新时间 2024-06-25 10:28:00
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://nodeclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://nodeclash.github.io/uploads/2024/06/0-20240624.yaml
-- https://nodeclash.github.io/uploads/2024/06/1-20240624.yaml
-- https://nodeclash.github.io/uploads/2024/06/2-20240624.yaml
-- https://nodeclash.github.io/uploads/2024/06/3-20240624.yaml
-- https://nodeclash.github.io/uploads/2024/06/4-20240624.yml
+- https://nodeclash.github.io/uploads/2024/06/0-20240625.yaml
+- https://nodeclash.github.io/uploads/2024/06/1-20240625.yaml
+- https://nodeclash.github.io/uploads/2024/06/2-20240625.yaml
+- https://nodeclash.github.io/uploads/2024/06/3-20240625.yaml
+- https://nodeclash.github.io/uploads/2024/06/4-20240625.yml
 
 ### V2ray订阅链接
 
-- https://nodeclash.github.io/uploads/2024/06/0-20240624.txt
-- https://nodeclash.github.io/uploads/2024/06/1-20240624.txt
-- https://nodeclash.github.io/uploads/2024/06/2-20240624.txt
-- https://nodeclash.github.io/uploads/2024/06/3-20240624.txt
-- https://nodeclash.github.io/uploads/2024/06/4-20240624.txt
+- https://nodeclash.github.io/uploads/2024/06/0-20240625.txt
+- https://nodeclash.github.io/uploads/2024/06/1-20240625.txt
+- https://nodeclash.github.io/uploads/2024/06/2-20240625.txt
+- https://nodeclash.github.io/uploads/2024/06/3-20240625.txt
+- https://nodeclash.github.io/uploads/2024/06/4-20240625.txt
 
 ## 更多clash节点订阅 ：
 
