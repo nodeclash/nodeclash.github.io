@@ -424,7 +424,7 @@
                     $('#message').hide();
 
                     $('#submit')
-                        .after('<img src="assets/img/ajax-loader.gif" class="loader" />')
+                        .after('<img src="/assets/addons/xcblog/img/vpnnode/ajax-loader.gif" class="loader" />')
                         .attr('disabled', 'disabled');
 
                     $.post(action, {
