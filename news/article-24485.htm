@@ -131,7 +131,8 @@
                                     <div class="blog-item-box">
                                         <!-- Start Post Thumb -->
                                         <div class="content">
-                                                              				  				  				<div id="content_views" class="htmledit_views"> <p>一、新建项目Demo2</p> <p><img fetchpriority="high" decoding="async" alt="" height="578" src="http://img.555519.xyz/uploads3/20220819/1f85552f3af8794b3d6506f53d489494.jpg"></p> <p>二、安装 参考文献：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://router.vuejs.org/installation.html#direct-download-cdn"  title="Installation | Vue Router" rel="nofollow">Installation | Vue Router</a></p> <pre><code>npm install vue-router@4</code></pre> <p>三、新建目录及页面</p> <p>/products/index.vue</p> <pre><code class="language-html">&lt;template&gt; 	&lt;h1&gt;产品管理&lt;/h1&gt; &lt;/template&gt; &lt;script setup&gt; &lt;/script&gt; &lt;style&gt; &lt;/style&gt;</code></pre> <p>/merchands/index.vue</p> <pre><code class="language-html">&lt;template&gt; 	&lt;h1&gt;商品管理&lt;/h1&gt; &lt;/template&gt;  &lt;script&gt; &lt;/script&gt;  &lt;style&gt; &lt;/style&gt;</code></pre> <p>四、修改</p> <p>index.html</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt;   &lt;head&gt;     &lt;meta charset="UTF-8" /&gt;     &lt;link  href="/favicon.ico" /&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;     &lt;title&gt;Vite App&lt;/title&gt; 	&lt;script type="module" src="/src/main.js"&gt;&lt;/script&gt;   &lt;/head&gt;   &lt;body&gt;     &lt;div id="app"&gt; 	&lt;/div&gt;   &lt;/body&gt; &lt;/html&gt;</code></pre> <p>App.vue</p> <pre><code class="language-html">&lt;script setup&gt; &lt;/script&gt;  &lt;template&gt;   &lt;img alt="Vue logo" src="./assets/logo.png" alt="vue3-VueRouter使用" /&gt;   &lt;p&gt;      &lt;router-link to="/"&gt;P&lt;/router-link&gt;      &lt;router-link to="/m" style="margin-left: 20px;"&gt;M&lt;/router-link&gt;    &lt;/p&gt;    &lt;router-view&gt;&lt;/router-view&gt; &lt;/template&gt;  &lt;style&gt; #app {   text-align: center;   color: #2c3e50;   margin-top: 60px; } &lt;/style&gt;</code></pre> <p>main.js</p> <pre><code class="language-javascript">import { createApp } from 'vue' import * as VueRouter from 'vue-router';  import App from './App.vue' import Product from './products/index.vue' import Merchands from './merchands/index.vue'  const routes = [   { path: '/', component: Product },    { path: '/m', component: Merchands }, ] const router = VueRouter.createRouter({   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。   history: VueRouter.createWebHashHistory(),   routes, // `routes: routes` 的缩写 }) createApp(App).use(router).mount('#app')</code></pre> <p>五、效果</p> <p><img decoding="async" alt="" height="571" src="http://img.555519.xyz/uploads3/20220819/264ce8ddaeb279005f8fc8f6e12b0d8e.jpg"></p> </div> 			                <div class="clearfix"></div>
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一、新建项目Demo2</p> <p><img fetchpriority="high" decoding="async" alt="" height="578" src="http://img.555519.xyz/uploads3/20220819/1f85552f3af8794b3d6506f53d489494.jpg"></p> <p>二、安装 参考文献：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://router.vuejs.org/installation.html#direct-download-cdn"  title="Installation | Vue Router" rel="nofollow">Installation | Vue Router</a></p> <pre><code>npm install vue-router@4</code></pre> <p>三、新建目录及页面</p> <p>/products/index.vue</p> <pre><code class="language-html">&lt;template&gt; 	&lt;h1&gt;产品管理&lt;/h1&gt; &lt;/template&gt; &lt;script setup&gt; &lt;/script&gt; &lt;style&gt; &lt;/style&gt;</code></pre> <p>/merchands/index.vue</p> <pre><code class="language-html">&lt;template&gt; 	&lt;h1&gt;商品管理&lt;/h1&gt; &lt;/template&gt;  &lt;script&gt; &lt;/script&gt;  &lt;style&gt; &lt;/style&gt;</code></pre> <p>四、修改</p> <p>index.html</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt;   &lt;head&gt;     &lt;meta charset="UTF-8" /&gt;     &lt;link  href="/favicon.ico" /&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;     &lt;title&gt;Vite App&lt;/title&gt; 	&lt;script type="module" src="/src/main.js"&gt;&lt;/script&gt;   &lt;/head&gt;   &lt;body&gt;     &lt;div id="app"&gt; 	&lt;/div&gt;   &lt;/body&gt; &lt;/html&gt;</code></pre> <p>App.vue</p> <pre><code class="language-html">&lt;script setup&gt; &lt;/script&gt;  &lt;template&gt;   &lt;img alt="Vue logo" src="./assets/logo.png" alt="vue3-VueRouter使用" /&gt;   &lt;p&gt;      &lt;router-link to="/"&gt;P&lt;/router-link&gt;      &lt;router-link to="/m" style="margin-left: 20px;"&gt;M&lt;/router-link&gt;    &lt;/p&gt;    &lt;router-view&gt;&lt;/router-view&gt; &lt;/template&gt;  &lt;style&gt; #app {   text-align: center;   color: #2c3e50;   margin-top: 60px; } &lt;/style&gt;</code></pre> <p>main.js</p> <pre><code class="language-javascript">import { createApp } from 'vue' import * as VueRouter from 'vue-router';  import App from './App.vue' import Product from './products/index.vue' import Merchands from './merchands/index.vue'  const routes = [   { path: '/', component: Product },    { path: '/m', component: Merchands }, ] const router = VueRouter.createRouter({   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。   history: VueRouter.createWebHashHistory(),   routes, // `routes: routes` 的缩写 }) createApp(App).use(router).mount('#app')</code></pre> <p>五、效果</p> <p><img decoding="async" alt="" height="571" src="http://img.555519.xyz/uploads3/20220819/264ce8ddaeb279005f8fc8f6e12b0d8e.jpg"></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-23694.htm">领养狗狗好吗?（领养狗狗好吗现在）</a></p>
                                         <p>下一个：<a href="/news/article-24486.htm">重庆宠物狗领养贴吧群（重庆 宠物领养）</a></p>
@@ -150,16 +151,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-4-29-free-node-subscribe.htm" title="4月29日19.1M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">4月29日19.1M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe.htm" title="11月26日18.2M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">11月26日18.2M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-1-free-clash.htm" title="4月1日19.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">4月1日19.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-4-shadowrocket-node.htm" title="10月4日22.1M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接">10月4日22.1M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-3-29-clash-windows.htm" title="3月29日18M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">3月29日18M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-subscribe-node.htm" title="10月23日22.9M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">10月23日22.9M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-v2ray-subscribe.htm" title="8月12日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">8月12日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-node-subscribe-links.htm" title="9月20日20.4M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接">9月20日20.4M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-3-18-clash-node.htm" title="3月18日19.8M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">3月18日19.8M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-7-clash-v2ray-ss-ssr.htm" title="7月7日19.7M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">7月7日19.7M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-8-node-share-links.htm" title="7月8日19.3M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">7月8日19.3M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-node-share.htm" title="9月4日18.4M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">9月4日18.4M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-4-free-node-subscribe-links.htm" title="5月4日19.9M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接">5月4日19.9M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-node-share.htm" title="10月28日22.4M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">10月28日22.4M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-3-31-clash-windows.htm" title="3月31日19.1M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接">3月31日19.1M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-clash-node-daily-updates.htm" title="10月7日20.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">10月7日20.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-31-free-clash-subscribe.htm" title="5月31日22.2M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接">5月31日22.2M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27878.htm" title="动物疫苗专业就业前景（动物疫苗专业就业前景如何）">动物疫苗专业就业前景（动物疫苗专业就业前景如何）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-high-speed-nodes.htm" title="11月1日21.1M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接">11月1日21.1M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-clash-v2ray-ss-ssr.htm" title="11月30日19.3M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">11月30日19.3M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -171,7 +172,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -218,6 +219,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p>
                             NodeClash节点订阅站 版权所有
                             <br />
