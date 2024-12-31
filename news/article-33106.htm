@@ -135,6 +135,7 @@
                   				  				  				</h1> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ljx-null/p/15928889.html"  target="_blank"  rel="nofollow">之前的文章</a>里我们提到过 Libco 有一套 Hook 机制，可以通过协程的让出（yield）原语将系统的阻塞系统调用改造为非阻塞的，这篇文章我们将深入解析 Hook 机制到底是怎么运作的</p> <p>Hook 机制的核心有两点</p> <ul> <li>提供自己的实现覆盖标准库（<code>libc.so</code>）的实现</li> <li>在自己实现的代码里要有办法能够调用标准库的实现</li> </ul> <p>也就是说，我们提供的实现其实是标准库实现的 wrapper</p> <p>为了搞明白 Hook 机制，我们首先要了解 Linux 动态库究竟是怎么运作的</p> <h2 id="动态库的加载和符号表">动态库的加载和符号表</h2> <p>动态库是在运行时链接的，这个工作是由动态链接器来完成的（Linux 下是 <code>/lib/ld-linux.so.2</code> ），主要涉及到的步骤有</p> <ul> <li>搜索可执行文件依赖的所有动态库，并将它们加载到进程的虚拟地址空间中</li> <li>做符号解析和重定位 <ul> <li>动态库的符号会被加到全局符号表里</li> </ul> </li> <li>执行共享对象的初始化代码</li> </ul> <p>如果可执行文件依赖的多个动态库定义了同一个符号时，以先加载的动态库为准，那么如果想要覆盖掉动态库 A 里的符号，最简单的做法就是让我们的库在动态库 A 之前加载，通常使用环境变量 <code>LD_PRELOAD</code> 来实现这点</p> <ul> <li> <code>LD_PRELOAD</code> 中列出的动态库会在所有其他动态库之前加载，包括 <code>libc.so</code></p> <ul> <li>不管程序是否依赖于它们，这些库都会被加载</li> <li>如果我们想要提供自己的 malloc 实现，只需要在自己的动态库里实现 malloc，然后将它加入 <code>LD_PRELOAD</code> 中，这样就会覆盖掉标准库的 malloc 实现</li> </ul> </li> </ul> <blockquote> <p>命令 <code>LD_DEBUG=files ./a.out</code> 可以查看动态库的加载顺序和初始化顺序，这两个顺序不一定相同</p> </blockquote> <h2 id="dlsym">dlsym</h2> <p>解决了第一个问题，那么剩下的问题就是如何在我们的实现里调用标准库实现了，直接用函数名调用肯定是不行的，那么我们能想到的办法就是能否给标准库的实现改一个名字呢？</p> <p>为了实现这点，我们需要用到 dlsym 函数， 它的函数原型为</p> <pre><code class="language-cpp">void *dlsym(void *restrict handle, const char *restrict symbol); </code></pre> <p>dlsym 的原意是用来获得动态加载进来的动态库中的接口（Linux 中的动态库不仅可以在程序启动时加载，还可以在程序运行过程中加载和卸载），其中 handle 是动态库的句柄，symbol 是要搜索的符号</p> <p>此外，dlsym 还支持两个伪 handle</p> <ul> <li> <code>RTLD_DEFAULT</code></p> <ul> <li>按默认搜索顺序搜索第一次出现的 symbol，搜索范围包含全局符号表里的所有符号 <ul> <li>程序可执行文件本身的符号</li> <li>动态链接器加载的动态库中的符号</li> <li>如果用 dlopen 加载动态库时，指定了 <code>RTLD_GLOBAL</code>选项，那么它的符号也会出现在全局符号表里</li> </ul> </li> </ul> </li> <li> <code>RTLD_NEXT</code></p> <ul> <li>从当前可执行文件或动态库开始，搜索下一次出现的 symbol <ul> <li>搜索顺序依赖于动态链接库的加载顺序</li> <li>假设动态链接库的加载顺序是 A -&gt; B -&gt; C -&gt; D，在动态库 B 里调这个接口搜索 symbol1，就会依次去 C 和 D 中搜索 symbol1，返回先找到的 symbol1 地址</li> </ul> </li> </ul> </li> </ul> <p>利用 <code>RTLD_NEXT</code> 就可以实现我们想要的功能，假设说我们用 <code>LD_PRELOAD</code> 覆盖了标准库 malloc 实现，就可以通过 dlsym 拿到标准库的 malloc 地址（前提是在 libc.so 之前没有其他库定义了 malloc），给它的函数指针起一个其他的名字，就可以在我们的实现里调用标准库 malloc 了</p> <p>可以看到 Libco 里就是用这种方法拿到所有标准库实现的函数指针</p> <pre><code class="language-c">typedef ssize_t (*read_pfn_t)(int fildes, void *buf, size_t nbyte); static read_pfn_t g_sys_read_func = (read_pfn_t)dlsym(RTLD_NEXT, "read"); </code></pre> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-33105.htm">VScode中使用Cmake遇到的问题及其解决方法for Windows OS</a></p>
+                                        <p>下一个：<a href="/news/article-33558.htm">狗粮颗粒机成型原理图（狗粮颗粒机成型原理图片）</a></p>
                                     </div>
                                                         </div>
                                     </div>
@@ -150,16 +151,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-subscribe-node.htm" title="12月18日21.7M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">12月18日21.7M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27877.htm" title="实时流处理与分布式存储过程中对文件的操作">实时流处理与分布式存储过程中对文件的操作</a></li>
-                        <li class="py-2"><a href="/news/article-19112.htm" title="MyBatis:SQL语句中的foreach标签的详细介绍">MyBatis:SQL语句中的foreach标签的详细介绍</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-21-free-clash.htm" title="6月21日18.3M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">6月21日18.3M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-22-shadowrocket-node.htm" title="7月22日19.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">7月22日19.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-clash-v2ray-ss-ssr.htm" title="12月2日18M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">12月2日18M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-13-shadowrocket-node.htm" title="4月13日19.9M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接">4月13日19.9M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-ssr-subscribe.htm" title="12月17日21.9M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">12月17日21.9M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-25-free-ssr-node.htm" title="6月25日21.6M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">6月25日21.6M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-24-free-ssr-node.htm" title="4月24日20.9M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">4月24日20.9M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-16-free-clash.htm" title="6月16日21.5M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">6月16日21.5M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-19-free-shadowrocket-node.htm" title="7月19日19M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">7月19日19M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-13-free-v2ray-subscribe.htm" title="6月13日22.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">6月13日22.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-11-free-ssr-subscribe.htm" title="6月11日20.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">6月11日20.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-ssr-node.htm" title="8月15日20.2M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接">8月15日20.2M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-3-16-free-v2ray-subscribe.htm" title="3月16日22.1M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">3月16日22.1M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21404.htm" title="python列表添加数据">python列表添加数据</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-21-free-subscribe-node.htm" title="7月21日22M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接">7月21日22M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-8-free-node-subscribe.htm" title="8月8日19.9M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">8月8日19.9M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-node-subscribe.htm" title="12月10日19.9M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">12月10日19.9M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -171,7 +172,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
