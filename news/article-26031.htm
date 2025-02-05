@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nodeclash.github.io/news/article-26031.htm" />
@@ -12,6 +12,33 @@
     <title>如何使用Copy-Item在PowerShell中复制多个文件？</title>
         <meta name="description" content="要在PowerShell中复制多个文件，您需要使用逗号(,)分隔每个文件。 在下面的示例中，我们将多个文件从源复制到目标文件夹D：\ TempContent。 示例 Copy-Item&nbsp;.\" />
         <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-26031.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="如何使用Copy-Item在PowerShell中复制多个文件？" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/ab923e2cbc4c3b5a5f70be6fb5c0b967.webp" />
+        <meta property="og:release_date" content="2024-12-15T10:44:26" />
+    <meta property="og:updated_time" content="2024-12-15T10:44:26" />
+        <meta property="og:description" content="要在PowerShell中复制多个文件，您需要使用逗号(,)分隔每个文件。 在下面的示例中，我们将多个文件从源复制到目标文件夹D：\ TempContent。 示例 Copy-Item&nbsp;.\" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何使用Copy-Item在PowerShell中复制多个文件？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
@@ -65,7 +92,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">
-                            <img href="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
                             Node Clash
                     </a>
                 </div>
@@ -103,7 +130,7 @@
     <!-- End Header -->
     <!-- Start Breadcrumb 
     ============================================= -->
-    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(__ADDON__/img/nodeclash/banner/26.jpg);">
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -151,16 +178,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-v2ray.htm" title="11月10日19.8M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">11月10日19.8M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-22-free-ssr-node.htm" title="5月22日19.6M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">5月22日19.6M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-clash.htm" title="10月16日18.5M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">10月16日18.5M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-node-subscribe.htm" title="12月31日19.9M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接地址分享">12月31日19.9M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-clash-v2ray-ss-ssr.htm" title="12月2日18M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">12月2日18M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-2-node-share-links.htm" title="8月2日19.8M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">8月2日19.8M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-25-free-node-subscribe-links.htm" title="5月25日22.7M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接">5月25日22.7M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28805.htm" title="django之使用supervisord 后台启动celery 服务(worker/beat)">django之使用supervisord 后台启动celery 服务(worker/beat)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-clash.htm" title="10月25日23M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接">10月25日23M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-node-daily-updates.htm" title="12月4日19.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">12月4日19.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-subscribe-node.htm" title="11月21日21.2M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">11月21日21.2M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27878.htm" title="动物疫苗专业就业前景（动物疫苗专业就业前景如何）">动物疫苗专业就业前景（动物疫苗专业就业前景如何）</a></li>
                         <li class="py-2"><a href="/news/article-27877.htm" title="实时流处理与分布式存储过程中对文件的操作">实时流处理与分布式存储过程中对文件的操作</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-shadowrocket-node.htm" title="1月30日19.1M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接地址分享">1月30日19.1M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-clash.htm" title="12月20日19.1M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接">12月20日19.1M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-node-share.htm" title="1月15日22.9M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接地址分享">1月15日22.9M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-v2ray-subscribe.htm" title="11月25日21.2M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">11月25日21.2M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43823.htm" title="生物疫苗有什么区别（生物疫苗是不是都一样的）">生物疫苗有什么区别（生物疫苗是不是都一样的）</a></li>
+                        <li class="py-2"><a href="/news/article-31149.htm" title="Spring中@Scheduled功能的使用方法详解_java">Spring中@Scheduled功能的使用方法详解_java</a></li>
                     </ul>
     </div>
 </div>
@@ -172,37 +199,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

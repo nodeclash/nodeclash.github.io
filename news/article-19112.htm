@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nodeclash.github.io/news/article-19112.htm" />
@@ -12,6 +12,33 @@
     <title>MyBatis:SQL语句中的foreach标签的详细介绍</title>
         <meta name="description" content="foreach 也就是遍历迭代，在SQL中通常用在 in 这个关键词的后面 foreach元素的属性主要有 item，index，collection，open，separator，close。 分别" />
         <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-19112.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="MyBatis:SQL语句中的foreach标签的详细介绍" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/d67c2b16c544b7f36e2d3b8568a69aa3.webp" />
+        <meta property="og:release_date" content="2024-11-30T10:44:09" />
+    <meta property="og:updated_time" content="2024-11-30T10:44:09" />
+        <meta property="og:description" content="foreach 也就是遍历迭代，在SQL中通常用在 in 这个关键词的后面 foreach元素的属性主要有 item，index，collection，open，separator，close。 分别" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MyBatis:SQL语句中的foreach标签的详细介绍">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
@@ -65,7 +92,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">
-                            <img href="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
                             Node Clash
                     </a>
                 </div>
@@ -103,7 +130,7 @@
     <!-- End Header -->
     <!-- Start Breadcrumb 
     ============================================= -->
-    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(__ADDON__/img/nodeclash/banner/26.jpg);">
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -151,16 +178,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-5-22-free-ssr-node.htm" title="5月22日19.6M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">5月22日19.6M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22775.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
-                        <li class="py-2"><a href="/news/article-26955.htm" title="宠物粮食加盟 宠物粮食加工厂加盟">宠物粮食加盟 宠物粮食加工厂加盟</a></li>
-                        <li class="py-2"><a href="/news/article-28351.htm" title="【mq】从零开始实现 mq-03-引入 broker 中间人_在线工具">【mq】从零开始实现 mq-03-引入 broker 中间人_在线工具</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-v2ray-subscribe.htm" title="10月29日22.7M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">10月29日22.7M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24625.htm" title="Spring Cloud Hystrix Dashboard服务监控">Spring Cloud Hystrix Dashboard服务监控</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-clash-subscribe.htm" title="11月19日22.2M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">11月19日22.2M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-29-clash-node.htm" title="11月29日18.7M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接">11月29日18.7M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-14-node-share-links.htm" title="9月14日20.2M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接">9月14日20.2M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27878.htm" title="动物疫苗专业就业前景（动物疫苗专业就业前景如何）">动物疫苗专业就业前景（动物疫苗专业就业前景如何）</a></li>
+                        <li class="py-2"><a href="/news/article-26494.htm" title="宠物粮代理利润高吗（宠物粮代理利润高吗）">宠物粮代理利润高吗（宠物粮代理利润高吗）</a></li>
+                        <li class="py-2"><a href="/news/article-41347.htm" title="使用@Order注解调整配置类加载顺序">使用@Order注解调整配置类加载顺序</a></li>
+                        <li class="py-2"><a href="/news/article-40353.htm" title="河南兽药厂家排行榜（河南兽药厂家排行榜前十名）">河南兽药厂家排行榜（河南兽药厂家排行榜前十名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-v2ray.htm" title="1月23日21.2M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接地址分享">1月23日21.2M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-clash-node.htm" title="12月19日19.3M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">12月19日19.3M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39367.htm" title="猫咪3针疫苗间隔多久打一次好一点（猫三针疫苗间隔多久打）">猫咪3针疫苗间隔多久打一次好一点（猫三针疫苗间隔多久打）</a></li>
+                        <li class="py-2"><a href="/news/article-23233.htm" title="宠物食品网店名字 宠物食品网店名字大全">宠物食品网店名字 宠物食品网店名字大全</a></li>
+                        <li class="py-2"><a href="/news/article-33558.htm" title="狗粮颗粒机成型原理图（狗粮颗粒机成型原理图片）">狗粮颗粒机成型原理图（狗粮颗粒机成型原理图片）</a></li>
+                        <li class="py-2"><a href="/news/article-34909.htm" title="猫咪喜欢你的10种表现（猫喜欢靠近有灵气的人）">猫咪喜欢你的10种表现（猫喜欢靠近有灵气的人）</a></li>
+                        <li class="py-2"><a href="/news/article-20028.htm" title="制沙设备一套得多少钱（干粉砂浆设备干粉砂浆成套设备）">制沙设备一套得多少钱（干粉砂浆设备干粉砂浆成套设备）</a></li>
                     </ul>
     </div>
 </div>
@@ -172,37 +199,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

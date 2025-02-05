@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nodeclash.github.io/news/article-33106.htm" />
@@ -12,6 +12,33 @@
     <title>Libco Hook 机制浅析_在线工具</title>
         <meta name="description" content="之前的文章里我们提到过 Libco 有一套 Hook 机制，可以通过协程的让出（yield）原语将系统的阻塞系统调用改造为非阻塞的，这篇文章我们将深入解析 Hook 机制到底是怎么运作的 Hook 机" />
         <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-33106.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="Libco Hook 机制浅析_在线工具" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/6e36ddee64790289dae1668c948703d8.webp" />
+        <meta property="og:release_date" content="2024-12-30T09:01:40" />
+    <meta property="og:updated_time" content="2024-12-30T09:01:40" />
+        <meta property="og:description" content="之前的文章里我们提到过 Libco 有一套 Hook 机制，可以通过协程的让出（yield）原语将系统的阻塞系统调用改造为非阻塞的，这篇文章我们将深入解析 Hook 机制到底是怎么运作的 Hook 机" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Libco Hook 机制浅析_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
@@ -65,7 +92,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">
-                            <img href="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
                             Node Clash
                     </a>
                 </div>
@@ -103,7 +130,7 @@
     <!-- End Header -->
     <!-- Start Breadcrumb 
     ============================================= -->
-    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(__ADDON__/img/nodeclash/banner/26.jpg);">
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -151,16 +178,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-v2ray-subscribe.htm" title="11月25日21.2M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">11月25日21.2M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-clash.htm" title="10月14日22.2M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">10月14日22.2M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share.htm" title="9月28日22.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">9月28日22.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-27-node-share.htm" title="5月27日22.1M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接">5月27日22.1M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-shadowrocket-node.htm" title="10月12日20.6M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接">10月12日20.6M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-v2ray-subscribe.htm" title="8月12日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">8月12日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20943.htm" title="猫三联三针间隔时间久了会怎么样（猫三联每针隔多久）">猫三联三针间隔时间久了会怎么样（猫三联每针隔多久）</a></li>
-                        <li class="py-2"><a href="/news/article-26032.htm" title="办理宠物医院审批动物诊疗许可证流程是什么意思（宠物医院诊疗许可证要求）">办理宠物医院审批动物诊疗许可证流程是什么意思（宠物医院诊疗许可证要求）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-clash-windows.htm" title="8月14日20.8M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">8月14日20.8M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-17-free-node-subscribe-links.htm" title="7月17日21.9M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">7月17日21.9M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28805.htm" title="django之使用supervisord 后台启动celery 服务(worker/beat)">django之使用supervisord 后台启动celery 服务(worker/beat)</a></li>
+                        <li class="py-2"><a href="/news/article-48757.htm" title="兰州宠物市场兔子（兰州兔子宠物店）">兰州宠物市场兔子（兰州兔子宠物店）</a></li>
+                        <li class="py-2"><a href="/news/article-35867.htm" title="动物医院实践心得5000字怎么写的啊 动物医院实践心得5000字怎么写的啊视频">动物医院实践心得5000字怎么写的啊 动物医院实践心得5000字怎么写的啊视频</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-node-share.htm" title="1月27日20.6M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接地址分享">1月27日20.6M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-27878.htm" title="动物疫苗专业就业前景（动物疫苗专业就业前景如何）">动物疫苗专业就业前景（动物疫苗专业就业前景如何）</a></li>
+                        <li class="py-2"><a href="/news/article-27420.htm" title="中国猫粮生产基地（国内猫粮工厂）">中国猫粮生产基地（国内猫粮工厂）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-ssr-subscribe.htm" title="12月17日21.9M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">12月17日21.9M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19571.htm" title="成都领养宠物的地方有哪些（成都哪里可以领养宠物）">成都领养宠物的地方有哪些（成都哪里可以领养宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-34517.htm" title="助理宠物医师师资格认证（助理宠物医生资格证怎么考）">助理宠物医师师资格认证（助理宠物医生资格证怎么考）</a></li>
+                        <li class="py-2"><a href="/news/article-49785.htm" title="养猫咪打针多少钱（养猫咪打针多少钱一次）">养猫咪打针多少钱（养猫咪打针多少钱一次）</a></li>
                     </ul>
     </div>
 </div>
@@ -172,37 +199,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

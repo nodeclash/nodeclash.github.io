@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nodeclash.github.io/news/article-34039.htm" />
@@ -12,6 +12,33 @@
     <title>C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院</title>
         <meta name="description" content="如果在阅读过程中发现有错误，望评论指正，希望大家一起学习，一起进步。 学习C++编译环境：Linux   1.异常处理 异常的概念 程序在运行过程中可能产生异常 异常（Exception）与Bug的区" />
         <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-34039.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/36285d79730364f85c3a043fe6e0142c.webp" />
+        <meta property="og:release_date" content="2025-01-01T06:39:17" />
+    <meta property="og:updated_time" content="2025-01-01T06:39:17" />
+        <meta property="og:description" content="如果在阅读过程中发现有错误，望评论指正，希望大家一起学习，一起进步。 学习C++编译环境：Linux   1.异常处理 异常的概念 程序在运行过程中可能产生异常 异常（Exception）与Bug的区" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
@@ -65,7 +92,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">
-                            <img href="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
                             Node Clash
                     </a>
                 </div>
@@ -103,7 +130,7 @@
     <!-- End Header -->
     <!-- Start Breadcrumb 
     ============================================= -->
-    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(__ADDON__/img/nodeclash/banner/26.jpg);">
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -151,16 +178,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-4-6-free-v2ray.htm" title="4月6日22.6M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">4月6日22.6M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-12-shadowrocket-node.htm" title="12月12日20.8M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">12月12日20.8M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-20030.htm" title="动物医院实训总结怎么写 动物医院实训总结怎么写范文">动物医院实训总结怎么写 动物医院实训总结怎么写范文</a></li>
-                        <li class="py-2"><a href="/news/article-26032.htm" title="办理宠物医院审批动物诊疗许可证流程是什么意思（宠物医院诊疗许可证要求）">办理宠物医院审批动物诊疗许可证流程是什么意思（宠物医院诊疗许可证要求）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-shadowrocket-node.htm" title="9月6日20.8M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接">9月6日20.8M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-19-clash-node.htm" title="12月19日19.3M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">12月19日19.3M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33559.htm" title="宠物粮上市公司有哪些（宠物粮龙头股）">宠物粮上市公司有哪些（宠物粮龙头股）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-15-clash-v2ray-ss-ssr.htm" title="6月15日22.9M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">6月15日22.9M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-32604.htm" title="C语言操作符详解">C语言操作符详解</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-15-clash-windows.htm" title="5月15日20.3M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接">5月15日20.3M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-v2ray-subscribe.htm" title="11月25日21.2M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">11月25日21.2M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe.htm" title="11月5日19.4M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接">11月5日19.4M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-clash-node-daily-updates.htm" title="1月22日21.9M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接地址分享">1月22日21.9M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-clash.htm" title="12月5日18.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">12月5日18.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46798.htm" title="stm32F103RCT6使用FFT运算分析波形详解">stm32F103RCT6使用FFT运算分析波形详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-shadowrocket-node.htm" title="1月30日19.1M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接地址分享">1月30日19.1M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-22318.htm" title="TENSORFLOW：TENSORS">TENSORFLOW：TENSORS</a></li>
+                        <li class="py-2"><a href="/news/article-41348.htm" title="宠物粮厂家批发价格表图片（宠物粮生产厂家）">宠物粮厂家批发价格表图片（宠物粮生产厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-node-daily-updates.htm" title="12月4日19.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">12月4日19.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -172,37 +199,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

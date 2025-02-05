@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nodeclash.github.io/news/article-29265.htm" />
@@ -12,6 +12,33 @@
     <title>vue使用store</title>
         <meta name="description" content="vue使用store，我的通俗理解是store里的是全局变量，只要改变变量后，其他页面在次使用，获取到的就是改变后的值。 src下创建store文件夹index.js import Vue from " />
         <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-29265.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="vue使用store" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/711c4c7f6b64d2a23b320a156fb7cbe5.webp" />
+        <meta property="og:release_date" content="2024-12-22T11:00:56" />
+    <meta property="og:updated_time" content="2024-12-22T11:00:56" />
+        <meta property="og:description" content="vue使用store，我的通俗理解是store里的是全局变量，只要改变变量后，其他页面在次使用，获取到的就是改变后的值。 src下创建store文件夹index.js import Vue from " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue使用store">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- ========== Start Stylesheet ========== -->
     <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
@@ -65,7 +92,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">
-                            <img href="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
                             Node Clash
                     </a>
                 </div>
@@ -103,7 +130,7 @@
     <!-- End Header -->
     <!-- Start Breadcrumb 
     ============================================= -->
-    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(__ADDON__/img/nodeclash/banner/26.jpg);">
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -151,16 +178,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-v2ray-subscribe.htm" title="11月9日20.3M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接">11月9日20.3M/S|SSR/Shadowrocket/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-3-17-free-high-speed-nodes.htm" title="3月17日20.6M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">3月17日20.6M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-31658.htm" title="定制电梯哪里有?(定制家用电梯品牌价格)">定制电梯哪里有?(定制家用电梯品牌价格)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-9-node-share-links.htm" title="8月9日21.2M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">8月9日21.2M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-3-31-clash-windows.htm" title="3月31日19.1M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接">3月31日19.1M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-29-free-node-subscribe.htm" title="4月29日19.1M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">4月29日19.1M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-node-share-links.htm" title="12月22日21.1M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接地址分享">12月22日21.1M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接地址分享</a></li>
-                        <li class="py-2"><a href="/news/article-20486.htm" title="狗粮牌子图片（狗粮品牌logo）">狗粮牌子图片（狗粮品牌logo）</a></li>
-                        <li class="py-2"><a href="/news/article-27877.htm" title="实时流处理与分布式存储过程中对文件的操作">实时流处理与分布式存储过程中对文件的操作</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-21-free-clash.htm" title="6月21日18.3M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">6月21日18.3M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28805.htm" title="django之使用supervisord 后台启动celery 服务(worker/beat)">django之使用supervisord 后台启动celery 服务(worker/beat)</a></li>
+                        <li class="py-2"><a href="/news/article-21861.htm" title="美迪青储机厂家电话地址（美迪青储机3300价格）">美迪青储机厂家电话地址（美迪青储机3300价格）</a></li>
+                        <li class="py-2"><a href="/news/article-31657.htm" title="养猫***大概需要多少钱一次呀（养猫咪***多少钱）">养猫***大概需要多少钱一次呀（养猫咪***多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-40840.htm" title="idea中的Maven项目怎么配置Tomcat部署">idea中的Maven项目怎么配置Tomcat部署</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-node-subscribe.htm" title="11月6日20.8M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">11月6日20.8M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-18612.htm" title="光疗胶和大力胶的区别(大力胶是不是光疗胶)">光疗胶和大力胶的区别(大力胶是不是光疗胶)</a></li>
+                        <li class="py-2"><a href="/news/article-26494.htm" title="宠物粮代理利润高吗（宠物粮代理利润高吗）">宠物粮代理利润高吗（宠物粮代理利润高吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-clash-subscribe.htm" title="1月1日20.2M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接地址分享">1月1日20.2M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-30227.htm" title="华畜兽药有限公司官网招聘（华畜兽药厂家地址在哪里）">华畜兽药有限公司官网招聘（华畜兽药厂家地址在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-node-share-links.htm" title="2月1日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接地址分享">2月1日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接地址分享</a></li>
                     </ul>
     </div>
 </div>
@@ -172,37 +199,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
