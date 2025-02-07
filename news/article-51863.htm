@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-51863.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>ASP.NET Core使用EF保存数据、级联删除和事务使用_实用技巧</title>
+        <meta name="description" content="目录  1.简介 2.基本保存  2.1添加数据 2.2更新数据 2.3删除数据 2.4单个SaveChanges中的多个操作  3.保存关联数据  3.1添加关联数据 3.2添加相关实体 3.3更改" />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-51863.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="ASP.NET Core使用EF保存数据、级联删除和事务使用_实用技巧" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/231326ead48e64f5cfb40fb672e538cc.webp" />
+        <meta property="og:release_date" content="2025-02-06T05:28:01" />
+    <meta property="og:updated_time" content="2025-02-06T05:28:01" />
+        <meta property="og:description" content="目录  1.简介 2.基本保存  2.1添加数据 2.2更新数据 2.3删除数据 2.4单个SaveChanges中的多个操作  3.保存关联数据  3.1添加关联数据 3.2添加相关实体 3.3更改" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ASP.NET Core使用EF保存数据、级联删除和事务使用_实用技巧">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                                <li>
+                            <a href="#">关于</a>
+                        </li>
+                        <li>
+                            <a href="#">联系</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">ASP.NET Core使用EF保存数据、级联删除和事务使用_实用技巧</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.简介</a></li> <li><a href="#_label1" rel="nofollow">2.基本保存</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1添加数据</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2更新数据</a></li> <li><a href="#_lab2_1_2" rel="nofollow">2.3删除数据</a></li> <li><a href="#_lab2_1_3" rel="nofollow">2.4单个SaveChanges中的多个操作</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.保存关联数据</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_4" rel="nofollow">3.1添加关联数据</a></li> <li><a href="#_lab2_2_5" rel="nofollow">3.2添加相关实体</a></li> <li><a href="#_lab2_2_6" rel="nofollow">3.3更改关系</a></li> </ul> <li><a href="#_label3" rel="nofollow">4.级联删除</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">5.事务</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_4_7" rel="nofollow">5.1控制事务</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.简介</h2> <p>每个上下文实例都有一个ChangeTracker，它负责跟踪需要写入数据库的更改。更改实体类的实例时，这些更改会记录在ChangeTracker中，然后在调用SaveChanges时会被写入数据库中。此数据库提供程序负责将更改转换为特定于数据库的操作（例如，关系数据库的INSERT、UPDATE和DELETE命令）。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.基本保存</h2> <p>了解如何使用上下文和实体类添加、修改和删除数据。</p> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1添加数据</h3> <p>使用DbSet.Add方法添加实体类的新实例。调用SaveChanges时，数据将插入到数据库中。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      var blog = new Blog { Url = "http://sample.com" };      context.Blogs.Add(blog);      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2更新数据</h3> <p>EF将自动检测对由上下文跟踪的现有实体所做的更改。这包括从数据库加载查询的实体，以及之前添加并保存到数据库的实体。只需通过赋值来修改属性，然后调用SaveChanges即可。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      var blog = context.Blogs.First();      blog.Url = "http://sample.com/blog";      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>2.3删除数据</h3> <p>使用DbSet.Remove方法删除实体类的实例。如果实体已存在于数据库中，则将在SaveChanges期间删除该实体。如果实体尚未保存到数据库（即跟踪为“已添加”），则在调用SaveChanges时，该实体会从上下文中移除且不再插入。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      var blog = context.Blogs.First();      context.Blogs.Remove(blog);      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>2.4单个SaveChanges中的多个操作</h3> <p>可以将多个添加/更新/删除操作合并到对SaveChanges的单个调用。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      // add      context.Blogs.Add(new Blog { Url = "http://sample.com/blog_one" });      context.Blogs.Add(new Blog { Url = "http://sample.com/blog_two" });      // update      var firstBlog = context.Blogs.First();      firstBlog.Url = "";      // remove      var lastBlog = context.Blogs.Last();      context.Blogs.Remove(lastBlog);      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.保存关联数据</h2> <p>除了独立实体以外，还可以使用模型中定义的关系。</p> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>3.1添加关联数据</h3> <p>如果创建多个新的相关实体，则将其中一个添加到上下文时也会添加其他实体。在下面的示例中，博客和三个相关文章会全部插入到数据库中。找到并添加这些文章，因为它们可以通过Blog.Posts导航属性访问。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      var blog = new Blog      {          Url = "http://blogs.msdn.com/dotnet",          Posts = new List&lt;Post&gt;          {              new Post { Title = "Intro to C#" },              new Post { Title = "Intro to VB.NET" },              new Post { Title = "Intro to F#" }          }      };      context.Blogs.Add(blog);      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>3.2添加相关实体</h3> <p>如果从已由上下文跟踪的实体的导航属性中引用新实体，则将发现该实体并将其插入到数据库中。在下面的示例中，插入post实体，因为该实体会添加到已从数据库中提取的blog实体的Posts属性。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      var blog = context.Blogs.Include(b =&gt; b.Posts).First();      var post = new Post { Title = "Intro to EF Core" };      blog.Posts.Add(post);      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_lab2_2_6" rel="nofollow"></a></p> <h3>3.3更改关系</h3> <p>如果更改实体的导航属性，则将对数据库中的外键列进行相应的更改。在下面的示例中，post实体更新为属于新的blog实体，因为其Blog导航属性设置为指向blog，blog也会插入到数据库中，因为它是已由上下文post跟踪的实体的导航属性引用的新实体。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      //新增一个主体实体      var blog = new Blog { Url = "http://blogs.msdn.com/visualstudio" };      var post = context.Posts.First();      //post更新关系      post.Blog = blog;      context.SaveChanges();  }</pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.级联删除</h2> <p>删除行为在DeleteBehavior枚举器类型中定义，并且可以传递到OnDelete Fluent API来控制：</p> <ul> <li>可以删除子项/依赖项</li> <li>子项的外键值可以设置为null</li> <li>子项保持不变</li> </ul> <p>示例：</p> <div class="ay1code"> <pre class="brush:csharp;">var blog = context.Blogs.Include(b =&gt; b.Posts).First();  var posts = blog.Posts.ToList();  DumpEntities("  After loading entities:", context, blog, posts);  context.Remove(blog);  DumpEntities($"  After deleting blog '{blog.BlogId}':", context, blog, posts);  try  {      Console.WriteLine();      Console.WriteLine("  Saving changes:");      context.SaveChanges();      DumpSql();      DumpEntities("  After SaveChanges:", context, blog, posts);  }  catch (Exception e)  {      DumpSql();      Console.WriteLine();      Console.WriteLine($"  SaveChanges threw {e.GetType().Name}: {(e is DbUpdateException ? e.InnerException.Message : e.Message)}");  }</pre> </div> <p>记录结果：</p> <div class="ay1code"> <pre class="brush:plain;">After loading entities:      Blog '1' is in state Unchanged with 2 posts referenced.        Post '1' is in state Unchanged with FK '1' and reference to blog '1'.        Post '2' is in state Unchanged with FK '1' and reference to blog '1'.      After deleting blog '1':      Blog '1' is in state Deleted with 2 posts referenced.        Post '1' is in state Unchanged with FK '1' and reference to blog '1'.        Post '2' is in state Unchanged with FK '1' and reference to blog '1'.      Saving changes:      DELETE FROM [Posts] WHERE [PostId] = 1      DELETE FROM [Posts] WHERE [PostId] = 2      DELETE FROM [Blogs] WHERE [BlogId] = 1      After SaveChanges:      Blog '1' is in state Detached with 2 posts referenced.        Post '1' is in state Detached with FK '1' and no reference to a blog.        Post '2' is in state Detached with FK '1' and no reference to a blog.</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>5.事务</h2> <p>事务允许以原子方式处理多个数据库操作。如果已提交事务，则所有操作都会成功应用到数据库。如果已回滚事务，则所有操作都不会应用到数据库。</p> <p class="maodian"><a name="_lab2_4_7" rel="nofollow"></a></p> <h3>5.1控制事务</h3> <p>可以使用DbContext.Database API开始、提交和回滚事务。以下示例显示了两个SaveChanges()操作以及正在单个事务中执行的LINQ查询。并非所有数据库提供应用程序都支持事务的。 调用事务API时，某些提供应用程序可能会引发异常或不执行任何操作。</p> <div class="ay1code"> <pre class="brush:csharp;">using (var context = new BloggingContext())  {      using (var transaction = context.Database.BeginTransaction())      {          try          {              context.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/dotnet" });              context.SaveChanges();              context.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/visualstudio" });              context.SaveChanges();              var blogs = context.Blogs                  .OrderBy(b =&gt; b.Url)                  .ToList();              // Commit transaction if all commands succeed, transaction will auto-rollback              // when disposed if either commands fails              transaction.Commit();          }          catch (Exception)          {              // TODO: Handle failure          }      }  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51340.htm">领养宠物送到家附近怎么办理（领养宠物送到家附近怎么办理手续）</a></p>
+                                        <p>下一个：<a href="/news/article-51864.htm">宠物领养证书怎么办理流程视频（正规领养宠物流程）</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25093.htm" title="TypeScript与javascript优劣势">TypeScript与javascript优劣势</a></li>
+                        <li class="py-2"><a href="/news/article-48757.htm" title="兰州宠物市场兔子（兰州兔子宠物店）">兰州宠物市场兔子（兰州兔子宠物店）</a></li>
+                        <li class="py-2"><a href="/news/article-35390.htm" title="猫疫苗三针多久打完（猫疫苗三针多久打完有效）">猫疫苗三针多久打完（猫疫苗三针多久打完有效）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-windows.htm" title="11月22日18.3M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">11月22日18.3M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-clash.htm" title="12月11日20.7M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接">12月11日20.7M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23693.htm" title="Feign的hystrix熔断器不起作用">Feign的hystrix熔断器不起作用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-node-daily-updates.htm" title="12月4日19.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">12月4日19.5M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26493.htm" title="全国动物疫苗生产厂家排名（全国动物疫苗生产厂家排名榜）">全国动物疫苗生产厂家排名（全国动物疫苗生产厂家排名榜）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-subscribe-node.htm" title="12月18日21.7M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">12月18日21.7M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe.htm" title="1月4日22.1M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接地址分享">1月4日22.1M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
