@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-60201.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>java的Integer中也会有缓存</title>
+        <meta name="description" content="在上篇《java的自动拆箱会发生NPE》博客中接收了java中的Integer中的自动拆箱产生的NPE，其实对于所有的包装类来说都是一样的，都会产生这样的问题，大家需要举一反三，做学问学知识要懂得反思" />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-60201.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="java的Integer中也会有缓存" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/c3fab60c5db66f5748ea1a202b9e1632.webp" />
+        <meta property="og:release_date" content="2025-02-21T09:18:24" />
+    <meta property="og:updated_time" content="2025-02-21T09:18:24" />
+        <meta property="og:description" content="在上篇《java的自动拆箱会发生NPE》博客中接收了java中的Integer中的自动拆箱产生的NPE，其实对于所有的包装类来说都是一样的，都会产生这样的问题，大家需要举一反三，做学问学知识要懂得反思" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java的Integer中也会有缓存">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/client.htm">客户端</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">java的Integer中也会有缓存</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>在上篇《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/teach/p/16146998.html"  target="_blank" rel="nofollow">java的自动拆箱会发生NPE</a>》博客中接收了java中的Integer中的自动拆箱产生的NPE，其实对于所有的包装类来说都是一样的，都会产生这样的问题，大家需要举一反三，做学问学知识要懂得反思总结。</p> </h1> <p>先回顾下上次的知识点，</p> <blockquote> <p><strong><span style="font-size: 18pt">自动拆箱</span></strong> 实际调用的是intValue()方法</p> <p><strong><span style="font-size: 18pt">自动装箱</span></strong> 实际调用的是valueOf(int i)方法</p> </blockquote> <p>其他的包装类，小伙伴们自己总结</p> </h1> <p>好了话不多说，书接上回，开始这次的分享，上次说到在自动装箱的时候还大有玄机，这个玄机就是本地缓存。这个玄机在自动装箱的方法中，如下</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * Returns an {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} instance representing the specified      * {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> int} value.  If a new {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} instance is not      * required, this method should generally be used in preference to      * the constructor {</span><span style="color: rgba(128, 128, 128, 1)">@link</span><span style="color: rgba(0, 128, 0, 1)"> #Integer(int)}, as this method is likely      * to yield significantly better space and time performance by      * caching frequently requested values.      *      * This method will always cache values in the range -128 to 127,      * inclusive, and may cache other values outside of this range.      *      *</span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)">  i an {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> int} value.      *</span><span style="color: rgba(128, 128, 128, 1)">@return</span><span style="color: rgba(0, 128, 0, 1)"> an {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} instance representing {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> i}.      *</span><span style="color: rgba(128, 128, 128, 1)">@since</span><span style="color: rgba(0, 128, 0, 1)">  1.5</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> Integer valueOf(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> i) {</span><span style="color: rgba(0, 0, 255, 1)">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;=<span style="color: rgba(0, 0, 0, 1)"> IntegerCache.high)</span><span style="color: rgba(0, 0, 255, 1)">return</span> IntegerCache.cache[i + (-<span style="color: rgba(0, 0, 0, 1)">IntegerCache.low)];</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Integer(i);     }</span></pre> </div> <p>先看下其方法说明吧，用我大学英语六级的水平给大家翻译下，献丑了大家莫怪，</p> <blockquote> <p>返回一个代表指定int的Integer对象，如果一个新的Integer实例不是必需的，这个方法通常使用构造方法来生成，另一方面，这个方法通常为了节省空间和实际会缓存一些经常使用的值</p> <p>这个方法会缓存[-128~127]间的值，也可能会缓存这个范围以外的值</p> </blockquote> <p>翻译的太差劲了，大体意思是如果参数在[-128,127]间则会从缓存中取，如果不在则直接生成Integer的实例。<strong>还有很重要的一点最大值可以配置。</strong></p> <p>看方法的逻辑也是这样的，看下Integer初始化缓存的代码，在Integer中有静态内部类IntegerCache，代码</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> IntegerCache {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">缓存区间，最小值</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">final</span><span style="color: rgba(0, 0, 255, 1)">int</span> low = -128<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">缓存区间，最大值，可配置</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">final</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> high;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">缓存</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">final</span><span style="color: rgba(0, 0, 0, 1)"> Integer cache[];</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 0, 1)"> {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> high value may be configured by property</span><span style="color: rgba(0, 0, 255, 1)">int</span> h = 127<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获得配置的缓存区间最大值</span>             String integerCacheHighPropValue =<span style="color: rgba(0, 0, 0, 1)">                 sun.misc.VM.getSavedProperty(</span>"java.lang.Integer.IntegerCache.high"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 0, 255, 1)">if</span> (integerCacheHighPropValue !=<span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">) {</span><span style="color: rgba(0, 0, 255, 1)">try</span><span style="color: rgba(0, 0, 0, 1)"> {</span><span style="color: rgba(0, 0, 255, 1)">int</span> i =<span style="color: rgba(0, 0, 0, 1)"> parseInt(integerCacheHighPropValue);                     i</span>= Math.max(i, 127<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> Maximum array size is Integer.MAX_VALUE</span>                     h = Math.min(i, Integer.MAX_VALUE - (-low) -1<span style="color: rgba(0, 0, 0, 1)">);                 }</span><span style="color: rgba(0, 0, 255, 1)">catch</span><span style="color: rgba(0, 0, 0, 1)">( NumberFormatException nfe) {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> If the property cannot be parsed into an int, ignore it.</span><span style="color: rgba(0, 0, 0, 1)">                }             }             high</span>=<span style="color: rgba(0, 0, 0, 1)"> h;              cache</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer[(high - low) + 1<span style="color: rgba(0, 0, 0, 1)">];</span><span style="color: rgba(0, 0, 255, 1)">int</span> j =<span style="color: rgba(0, 0, 0, 1)"> low;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">for循环，生成缓存</span><span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> k = 0; k &lt; cache.length; k++<span style="color: rgba(0, 0, 0, 1)">)                 cache[k]</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer(j++<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> range [-128, 127] must be interned (JLS7 5.1.7)</span><span style="color: rgba(0, 0, 255, 1)">assert</span> IntegerCache.high &gt;= 127<span style="color: rgba(0, 0, 0, 1)">;         }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> IntegerCache() {}     }</span></pre> </div> <p>上面的代码加注释足以说明一切，不再一一解释了，默认情况下Integer中存在[-128,127]范围内的的256个缓存Integer实例。</p> </h1> <p>上面说到，在Integer中存在缓存，<strong>重要的一点是在调用valueOf()方法的时候才会校验缓存，</strong>valueOf方法共有以下几个</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/532c1ba677b2c101bad2f45cb71fcbc6.jpg" alt="java的Integer中也会有缓存"></p> <p>重要声明，在使用构造方法的时候是没有缓存的，看构造方法</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * Constructs a newly allocated {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} object that      * represents the specified {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> int} value.      *      *</span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)">   value   the value to be represented by the      *                  {</span><span style="color: rgba(128, 128, 128, 1)">@code</span><span style="color: rgba(0, 128, 0, 1)"> Integer} object.</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 255, 1)">public</span> Integer(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value) {</span><span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> value;     }</span></pre> </div> <p>那么在验证的时候就不能使用构造方法的方式，需要使用自动装箱的方式。</p> <h2>1、构造方法没有缓存</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> TestIntegerConstruct {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args) {         Integer i1</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer(1<span style="color: rgba(0, 0, 0, 1)">);         Integer i2</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Integer(1<span style="color: rgba(0, 0, 0, 1)">);         System.out.println(i1</span>==<span style="color: rgba(0, 0, 0, 1)">i2);      } }</span></pre> </div> <p>打印结果为，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  Process finished with exit code</span>0</pre> </div> <p>打印出来为false，说明i1和i2为两个不同的对象。</p> <h2>2、valueOf()方法才有的缓存</h2> <p>使用valueOf构造两个Integer对象，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> TestValueOf {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args) {         Integer i1</span>=1<span style="color: rgba(0, 0, 0, 1)">;         Integer i2</span>=1<span style="color: rgba(0, 0, 0, 1)">;         System.out.println(i1</span>==<span style="color: rgba(0, 0, 0, 1)">i2);     } }</span></pre> </div> <p>打印结果为，</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">  Process finished with exit code</span>0</pre> </div> <p>说明i1和i2为同一个实例，这里使用的是==来判断，对引用对象来说判断的不正是其地址。</p> <p>多说一点，这里两个引用类型的比较，大家不要像我这里似的，使用“==”，请使用equals方法，使用“==”比较的是内存地址，在大部分情况下，内存地址肯定不相等，而使用equals方法就说不准了，equals方法比较的是什么？</p> <h2>3、Integer的equals方法</h2> <p>看下Integer的equals方法比较的是什么东西</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> equals(Object obj) {</span><span style="color: rgba(0, 0, 255, 1)">if</span> (obj<span style="color: rgba(0, 0, 255, 1)">instanceof</span><span style="color: rgba(0, 0, 0, 1)"> Integer) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> value ==<span style="color: rgba(0, 0, 0, 1)"> ((Integer)obj).intValue();         }</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;     }</span></pre> </div> <p>看到没，搜先判断的是类型，然后调用其intValue方法，也就是拆箱，比较的是Integer中value的值，也就是数值的比较。</p> </h1> <p>本文，分享了Integer中的本地缓存，需要明白以下几个问题，</p> <p>1、什么时候会用到本地缓存？--调用valueOf方法的时候</p> <p>2、本地缓存的大小；--默认为[-128,127]，最大值可设置</p> <p>3、equals方法比较的是什么；--比较的是值得大小，非内存地址</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59623.htm">动物疫苗接种时间表最新查询电话 动物疫苗接种时间表最新查询电话号码</a></p>
+                                        <p>下一个：<a href="/news/article-60202.htm">济南领养动物救助站（济南小动物领养）</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-clash-node-daily-updates.htm" title="2月2日20.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接地址分享">2月2日20.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-19571.htm" title="成都领养宠物的地方有哪些（成都哪里可以领养宠物）">成都领养宠物的地方有哪些（成都哪里可以领养宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-subscribe-node.htm" title="11月21日21.2M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">11月21日21.2M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40839.htm" title="笔记：Linux命令（目录和文件管理）">笔记：Linux命令（目录和文件管理）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-ssr-node.htm" title="1月25日20.6M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接地址分享">1月25日20.6M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-49274.htm" title="特殊线性表&#8212;&#8212;&#8212;-栈（1）">特殊线性表&#8212;&#8212;&#8212;-栈（1）</a></li>
+                        <li class="py-2"><a href="/news/article-39855.htm" title="300元能买一只什么猫（有没有300块钱的猫）">300元能买一只什么猫（有没有300块钱的猫）</a></li>
+                        <li class="py-2"><a href="/news/article-30227.htm" title="华畜兽药有限公司官网招聘（华畜兽药厂家地址在哪里）">华畜兽药有限公司官网招聘（华畜兽药厂家地址在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-shadowrocket-node.htm" title="1月20日22.8M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接地址分享">1月20日22.8M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-high-speed-nodes.htm" title="12月8日21.4M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接">12月8日21.4M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
