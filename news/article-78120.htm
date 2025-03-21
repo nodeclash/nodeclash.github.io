@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-78120.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>react-router@6 版本初体验</title>
+        <meta name="description" content="最近使用了一下react-router@6 版本感觉有很大的改动，记录一下。  React Router v6 makes heavy use of React hooks, so you'll ne" />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-78120.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="react-router@6 版本初体验" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/f329b79da198dd270e654780f8304582.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:28:45" />
+    <meta property="og:updated_time" content="2025-03-21T10:28:45" />
+        <meta property="og:description" content="最近使用了一下react-router@6 版本感觉有很大的改动，记录一下。  React Router v6 makes heavy use of React hooks, so you'll ne" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="react-router@6 版本初体验">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/client.htm">客户端</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">react-router@6 版本初体验</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>最近使用了一下<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://reactrouter.com/docs/en/v6/getting-started/installation"  target="_blank" rel="nofollow"><code>react-router@6</code></a> 版本感觉有很大的改动，记录一下。</p> <blockquote> <p>React Router v6 makes heavy use of React hooks, so you'll need to be on React 16.8 or greater before attempting the upgrade to React Router v6. The good news is that React Router v5 is compatible with React &gt;= 15, so if you're on v5 (or v4) you should be able to upgrade React without touching any of your router code.</p> </blockquote> <p>官网给出的原文上面说的很清楚了，在 6 版本上使用了<code>React Hooks</code>写法，说明不支持<code>class</code>类来写。并且要求<code>react</code>版本在<code>16.8</code>以上。如果想兼容<code>class</code>组件 以及<code>react@15</code>使用<code>只能用react-router@5版本</code>。</p> <h2 id="安装">安装</h2> <pre><code class="language-bash">D:\your_project&gt; npm i react-router-dom@6 # or D:\your_project&gt; yarn add react-router-dom@6 # or D:\your_project&gt; cnpm i react-router-dom@6</code></pre> <h2 id="变化">变化</h2> <h3 id="switch-与-routes"><code>Switch</code> 与<code>Routes</code></h3> <p>在 v5 版本中必须明确的说明嵌套的的路由和链接，那么就要获取父路由的属性等等。在 v6 版本则不需要，因为路径是<code>相对的</code>。案例如下：</p> <pre><code class="language-js">// react-router-dom v5.1 import {   BrowserRouter,   Switch,   Route,   Link,   useRouteMatch, } from "react-router-dom";  function App() {   return (     &lt;BrowserRouter&gt;       &lt;Switch&gt;         &lt;Route exact path="/" children={&lt;Home /&gt;} /&gt;         &lt;Route path="/users" children={&lt;Users /&gt;} /&gt;       &lt;/Switch&gt;     &lt;/BrowserRouter&gt;   ); }  function Users() {   // 获取当前 router 匹配信息  { path:string , url: string , }   const match = useRouteMatch();   return (     &lt;div&gt;       &lt;div className="link"&gt;         &lt;Link to={`${match.url}/me`}&gt;My Profile&lt;/Link&gt;       &lt;/div&gt;       &lt;Switch&gt;         {/*  path =  /users/me   */}         &lt;Route path={`${match.path}/me`}&gt;           &lt;OwnUserProfile /&gt;         &lt;/Route&gt;         {/*  path =  /users/:id   */}         &lt;Route path={`${match.path}/:id`}&gt;           &lt;UserProfile /&gt;         &lt;/Route&gt;       &lt;/Switch&gt;     &lt;/div&gt;   ); }</code></pre> <p>在 v6 版本后 再父组件里写的路径若无<code>/</code>开头 都是相对父组件。案例如下：</p> <pre><code class="language-js">// react-router-dom v6+ import {   BrowserRouter,   Routes,   Route,   Link, } from "react-router-dom";  function App() {   return (     &lt;BrowserRouter&gt;       &lt;Routes&gt;         &lt;Route path="/" element={&lt;Home /&gt;} /&gt;         {/* /users 下的所有路径 渲染 User组件 /user  /user/*  */}         &lt;Route path="/users/*" element={&lt;Users /&gt;} /&gt;       &lt;/Routes&gt;     &lt;/BrowserRouter&gt;   ); }  function Users() {   return (     &lt;div&gt;       &lt;nav&gt;         { /* to = /users/me  */ }         &lt;Link to="me"&gt;My Profile&lt;/Link&gt;       &lt;/nav&gt;       {/*  子组件 path 直接相对父组件 */}       &lt;Routes&gt;         {/*  /user/me  */}         &lt;Route path="me" element={&lt;OwnUserProfile /&gt;} /&gt;         {/*  /user/:id  */}         &lt;Route path=":id" element={&lt;UserProfile /&gt;} /&gt;       &lt;/Routes&gt;     &lt;/div&gt;   );</code></pre> <h3 id="route">Route</h3> <ul> <li>Route Props.path</li> </ul> <p>是相对的,它们会自动在父路由的路径和 URL 上构建。</p> <pre><code class="language-js">&lt;BrowserRouter&gt;   &lt;Routes&gt;     &lt;Route path="/" element={&lt;Home /&gt;} /&gt;     &lt;Route path="users" element={&lt;Users /&gt;}&gt;       {/* /user/me */}       &lt;Route path="me" element={&lt;OwnUserProfile /&gt;} /&gt;       {/* /user/:id */}       &lt;Route path=":id" element={&lt;UserProfile /&gt;} /&gt;     &lt;/Route&gt;   &lt;/Routes&gt; &lt;/BrowserRouter&gt;</code></pre> <ul> <li>Route (Props.<code>component</code> | Props.<code>render</code> | Props.<code>children</code>)<code>废弃</code> -&gt; 使用 Props.<code>element</code></li> </ul> <p>在 v5 版本 路由可以使用 三种属性来挂载组件，但是在 v6 版本 只有一种 就是<code>element</code>属性。</p> <pre><code class="language-js">// react-router-dom v5.x function Page() {   return &lt;div&gt; page 组件 &lt;/div&gt;; }  // 使用  component 挂载组件 &lt;Route path="/page" component={Page} /&gt;;  // 使用  render 挂载组件 &lt;Route   path="/page"   render={(routerProps) =&gt; &lt;Page routerProps={routerProps} /&gt;} /&gt;;  // 使用 children 挂载组件 &lt;Route path="/page" children={&lt;Page /&gt;} /&gt;;  &lt;Route path="/page"&gt;   &lt;Page /&gt; &lt;/Route&gt;;</code></pre> <h3 id="redirect-移除">Redirect (移除)</h3> <p>在 v5 版本中<code>&lt;Switch&gt;</code> 里 使用<code>&lt;Redirect&gt;</code> 组件进行路由重定向。</p> <pre><code class="language-js">// v5.x  // any code ... &lt;Switch&gt;   &lt;Route path="/user" children={&lt;User /&gt;} /&gt; &lt;/Switch&gt;;  function User({ userInfo }) {   if (!userInfo) {     // 重定向 到 登录页     return &lt;Redirect to="/login" /&gt;;   }   return &lt;div&gt;User Page&lt;/div&gt;; }</code></pre> <p>在 v6 版本中 将使用<code>Navigation</code></p> <pre><code class="language-js">// v6.x  // any code ... &lt;Switch&gt;   &lt;Route path="/user" children={&lt;User /&gt;} /&gt; &lt;/Switch&gt;;  function User({ userInfo }) {   if (!userInfo) {     // 重定向 到 登录页     return &lt;Navigation to="/login" /&gt;;   }   return &lt;div&gt;User Page&lt;/div&gt;; }</code></pre> <h3 id="switch-移除">Switch (移除)</h3> <p>在 v5 版本中 用<code>&lt;Switch&gt;</code>组件包裹<code>&lt;Route&gt;</code> 路由组件, 现在改用<code>&lt;Routes&gt;</code></p> <pre><code class="language-js">// v5.x &lt;Switch&gt;   &lt;Route path="/" children={&lt;Home /&gt;} /&gt;   &lt;Route path="/user" children={&lt;User /&gt;} /&gt; &lt;/Switch&gt;  // v6.x &lt;Routes&gt;   &lt;Route path="/" element={&lt;Home /&gt;} /&gt;   &lt;Route path="/user" element={&lt;User /&gt;} /&gt; &lt;/Routes&gt;</code></pre> <h3 id="link">Link</h3> <p>Link 组件主要用于路由跳转，在 v5 版本<code>Link</code> 的<code>to</code> 属性是根据当前<code>url</code>。举例：</p> <pre><code class="language-js">// 当前 路由路径 /user &lt;Link to="me" /&gt; // render &lt;a href="/me" &gt;...&lt;/a&gt;  // 当前 路由路径 /user/ &lt;Link to="me" /&gt; // render &lt;a href="/user/me" &gt;...&lt;/a&gt;</code></pre> <p>而在 v6 版本中 如果<code>Link</code> 在<code>Route</code>里渲染<code>to</code> 属性是根据当前<code>&lt;Route&gt;</code>路由的匹配的<code>url</code>；如果不在<code>Route</code>组件里挂载的，则是根据<code>BrowserRouter.basename</code> 渲染 跳转路径，默认<code>/</code>。</p> <pre><code class="language-js">// v6.x import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom"; &lt;BrowserRouter&gt;   &lt;Link to=""&gt; go Home&lt;/Link&gt; | &lt;Link to="user"&gt; go user&lt;/Link&gt;   &lt;Routes&gt;     &lt;Route path="/" element={&lt;Home /&gt;} /&gt;     &lt;Route path="/user" element={&lt;User /&gt;}&gt;       &lt;Route path=":id" element={&lt;Person /&gt;} /&gt;     &lt;/Route&gt;   &lt;/Routes&gt; &lt;/BrowserRouter&gt;;  function Home() {   return (     &lt;div&gt;       &lt;h1&gt;Home page&lt;/h1&gt;     &lt;/div&gt;   ); } function User() {   return (     &lt;div&gt;       &lt;h1&gt;User page&lt;/h1&gt;       &lt;Link to=".."&gt;go Home&lt;/Link&gt;       &lt;Link to="abc"&gt;go User abc&lt;/Link&gt;       &lt;hr /&gt;       &lt;Outlet /&gt;     &lt;/div&gt;   ); }  function Person() {   return (     &lt;div&gt;       &lt;h1&gt;User abc page&lt;/h1&gt;       &lt;Link to=".."&gt;go user&lt;/Link&gt;       &lt;Link to="../.."&gt;go Home&lt;/Link&gt;     &lt;/div&gt;   ); }</code></pre> <p>如果你把 url 看作文件路径，你发现<code>Link</code> 的<code>to</code> 相当于<code>cd</code> 跳转。</p> <pre><code class="language-js">&lt;Route path="app"&gt;   &lt;Route path="dashboard"&gt;     &lt;Route path="stats" /&gt;   &lt;/Route&gt; &lt;/Route&gt; &lt;Link to="stats"/&gt;             //  =&gt; &lt;a href="/app/dashboard/stats"&gt; &lt;Link to="../stats"/&gt;          //  =&gt; &lt;a href="/app/stats"&gt; &lt;Link to="../../stats"/&gt;       //  =&gt; &lt;a href="/stats"&gt; &lt;Link to="../../../stats"/&gt;    //  =&gt; &lt;a href="/stats"&gt;</code></pre> <p>假设当前的文件路径为 /app/dashboard</p> <pre><code class="language-bash">cd stats                        # pwd is /app/dashboard/stats cd ../stats                     # pwd is /app/stats cd ../../stats                  # pwd is /stats cd ../../../stats               # pwd is /stats</code></pre> <h3 id="navlink">NavLink</h3> <p><code>Props.exact</code> 命名为<code>Props.end</code>，删除<code>Props.activeClassName</code>,<code>Props.activeStyle</code> 使用函数返回<code>style,className</code>。</p> <pre><code class="language-js">// v5.x const style = { color : "red" } &lt;NavLink to="/user" exact /&gt; &lt;NavLink to="/user" activeClassName="active-link" /&gt; &lt;NavLink to="/user" activeStyle={style} /&gt;  // v6.x const getCls = ({ isActive  }) =&gt; isActive ? "link" : "ative link"; const getStyle = ({ isActive  }) =&gt; ({ color: isActive ?'red': 'blue' }) &lt;NavLink to="/user" end /&gt; // 精确匹配 &lt;NavLink to="/user" className={getCls} /&gt; &lt;NavLink to="/user" activeStyle={getStyle} /&gt;</code></pre> <h3 id="useroutematch-替换-usematch">useRouteMatch (替换) useMatch</h3> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://reactrouterdotcom.fly.dev/docs/en/v6/api#usematch"  target="_blank" rel="nofollow">useMatch api</a></p> <h2 id="新增">新增</h2> <h3 id="navigate-跳转路由组件">Navigate 跳转路由组件</h3> <p><code>&lt;Navigate&gt;</code> 组件和<code>useNavigate</code> hooks api 拥有一样的用法。在函数组件使用<code>useNavigate</code> api，而在 class 组件，可以使用<code>Navigate</code> 组件进行挂载跳转路由。</p> <pre><code class="language-ts">interface NavigateProps {   to: To;   replace?: boolean;   state?: any; }</code></pre> <pre><code class="language-js">class User extends React.Component {   render() {     const { userInfo } = this.props;     if (!userInfo) {       return &lt;Navigate to="/login" replace /&gt;;     }     return &lt;div&gt;User&lt;/div&gt;;   } }</code></pre> <h3 id="outlet-路由视图组件">Outlet 路由视图组件</h3> <p>当<code>Route</code> 下有子<code>Route</code> 的时候 需要使用<code>Outlet</code> 显示子路由内容。</p> <p><a href="#Link" rel="nofollow">案例</a></p> <h3 id="uselocation-hooks">useLocation hooks</h3> <p>获取当前路由<code>位置</code>对象。如果您想在当前位置更改时执行一些副作用，这可能很有用。</p> <pre><code class="language-js">import { useEffect } from "react" import { useLocation } from 'react-router-dom';  function App() {   let location = useLocation();    useEffect(() =&gt; {    // do  something   }, [location]);    return (     // ...   ); }</code></pre> <h3 id="usenavigate-hooks">useNavigate hooks</h3> <p>调用返回一个函数，该函数调用第一个参数为<code>string</code>类型 与<code>&lt;Link&gt;</code><code>to</code> 属性 效果一样，为<code>number</code>类型，在历史记录堆栈中传递要访问的增量。第二个参数 与<code>&lt;Link&gt;</code> 的<code>state,replace</code>类型相同。 替代了 v5 版本中的<code>history</code> 对象</p> <pre><code class="language-js">import { useNavigate } from "react-router-dom";  function App(){   const navigate = useNavigate();   const submit = (data)=&gt;{     api(data).then(res=&gt;{       navigate("/user")     })   }   const back = ()=&gt;{     navigate(-1) // 后退一页   }   return (     // ...   ) }</code></pre> <h3 id="useparams-hooks">useParams hooks</h3> <p>获取路由<code>:</code>匹配的信息,返回当前 URL 中与 匹配的动态参数的键/值对的对象。</p> <pre><code class="language-js">import { useParams } from "react-router-dom";  function Person(){   const { id } = useParams() //  path =  /user/:id  =&gt;  current url = /user/1    console.log(id) // 1   return (     // ....   ) }</code></pre> <h3 id="useroutes-hooks">useRoutes hooks</h3> <p>使用数组来定义路由。返回路由组件。</p> <pre><code class="language-js">import { useRoutes } from "react-router-dom";  const routes = [   {     path: "/",     element: &lt;Home /&gt;,     children: [       {         path: "/test",         element: &lt;Test /&gt;,       },     ],   },   {     path: "*",     element: &lt;NotFound /&gt;,   }, ];  function App() {   const router = useRoutes(routes);   return router; }</code></pre> <h3 id="usesearchparams-hooks">useSearchParams hooks</h3> <p>用于读取和设置 url 的<code>query</code>部分，返回和 react useState hooks 一样。每次<code>searchParams</code>修改相当于路由 push 一次。</p> <pre><code class="language-js">import { useSearchParams } from "react-router-dom";  // current url =&gt; / function App() {   const [searchParams, setSearchParams] = useSearchParams();   const setQueryId = () =&gt; {     // url change =&gt; /?id=2&amp;name=test     setSearchParams({       id: 2,       name: "test",     });   };   return (     &lt;div&gt;       &lt;h1&gt; current query id :{searchParams.get("id")}&lt;/h1&gt;       &lt;button onClick={setQueryId}&gt;set id&lt;/button&gt;     &lt;/div&gt;   ); }</code></pre> <ul> <li> <p>searchParams</p> <ul> <li> <p>searchParams.get(str) 返回 string | null</p> <p>获取 url 的 query 第一个匹配上的的<code>str</code>值.例如<code>/user?id=1</code>=&gt; searchParams.getAll('id') 返回值为为<code>'1'</code></p> </li> <li> <p>searchParams.getAll(str) 返回 string[]</p> <p>获取 url 的 query 所有的<code>str</code>值.例如<code>/user?id=1&amp;id=2</code>=&gt; searchParams.getAll('id') 返回值为<code>['1','2']</code></p> </li> </ul> </li> <li> <p>setSearchParams</p> <p>修改当前 url query 部分。相当于路由跳转了。你可以使用第二个参数，进行是否推入<code>history</code>栈。例如：<code>setSearchParams({ id : 2 },{ replace : true })</code>相当于<code>history.replace({currentUrl}/?id=2)</code></p> </li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77427.htm">宠物dr品牌有哪些（宠物dr品牌对比）</a></p>
+                                        <p>下一个：<a href="/news/article-78121.htm">动物医院收费标准文件是什么样的（动物医院手续）</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68137.htm" title="猫粮生产工艺及设备有哪些 猫粮生产工艺及设备有哪些品牌">猫粮生产工艺及设备有哪些 猫粮生产工艺及设备有哪些品牌</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-clash-node-daily-updates.htm" title="2月16日22.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接地址分享">2月16日22.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-71393.htm" title="PYTHON select in">PYTHON select in</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-ssr-subscribe.htm" title="2月15日18.5M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接地址分享">2月15日18.5M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-58412.htm" title="宠物粮生产厂家排名榜最新名单（国内宠物粮食十大厂家）">宠物粮生产厂家排名榜最新名单（国内宠物粮食十大厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-ssr-subscribe.htm" title="3月4日22.6M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接地址分享">3月4日22.6M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-78121.htm" title="动物医院收费标准文件是什么样的（动物医院手续）">动物医院收费标准文件是什么样的（动物医院手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-clash-subscribe.htm" title="3月7日20.1M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接地址分享">3月7日20.1M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-48234.htm" title="动物疫苗经营许可证如何办 动物疫苗经营许可证如何办理">动物疫苗经营许可证如何办 动物疫苗经营许可证如何办理</a></li>
+                        <li class="py-2"><a href="/news/article-41347.htm" title="使用@Order注解调整配置类加载顺序">使用@Order注解调整配置类加载顺序</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
