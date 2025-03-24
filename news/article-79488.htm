@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-79488.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>Linux 下清空或删除大文件/大量文件的几种方法</title>
+        <meta name="description" content="快速删除大文件 1. 通过重定向到 Null 来清空文件内容清空或者让一个文件成为空白的最简单方式，是像下面那样，通过 shell 重定向 null （不存在的事物）到该文件： # &gt; acce" />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-79488.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="Linux 下清空或删除大文件/大量文件的几种方法" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/231326ead48e64f5cfb40fb672e538cc.webp" />
+        <meta property="og:release_date" content="2025-03-23T08:21:30" />
+    <meta property="og:updated_time" content="2025-03-23T08:21:30" />
+        <meta property="og:description" content="快速删除大文件 1. 通过重定向到 Null 来清空文件内容清空或者让一个文件成为空白的最简单方式，是像下面那样，通过 shell 重定向 null （不存在的事物）到该文件： # &gt; acce" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux 下清空或删除大文件/大量文件的几种方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/client.htm">客户端</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">Linux 下清空或删除大文件/大量文件的几种方法</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <pre style="margin:0in;line-height:20pt;background-color:rgb(255,255,255);"><strong><span style="font-family:'Microsoft YaHei';font-size:16px;">快速删除大文件</span></strong></pre> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">1. 通过重定向到 Null 来清空文件内容清空或者让一个文件成为空白的最简单方式，是像下面那样，通过 shell 重定向 null （不存在的事物）到该文件：</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># &gt; access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/bd65423ac9afa87aa74c8b1b359a226f.jpg" alt="Linux 下清空或删除大文件/大量文件的几种方法"></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">2.<span style="color:rgb(51,51,51);background-color:rgb(255,255,255);">使用 : 符号<br /></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">使用 : 符号，它是 shell 的一个内置命令，等同于 true 命令，它可被用来作为一个 no-op（即不进行任何操作）。另一种清空文件的方法是将 :&nbsp;或者&nbsp;true 内置命令的输出重定向到文件中，具体如下：</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># : &gt; access.log # true &gt; access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/39ff1167d424892a012ac739064afd64.jpg" alt="Linux 下清空或删除大文件/大量文件的几种方法"></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);">3.使用 cat/cp/dd 实用工具及 /dev/null 设备来清空文件<br /></span></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">在 Linux 中， null 设备基本上被用来丢弃某个进程不再需要的输出流，或者作为某个输入流的空白文件，这些通常可以利用重定向机制来达到，所以 /dev/null 设备文件是一个特殊的文件，它将清空送到它这里来的所有输入，而它的输出则可被视为一个空文件。另外，你可以通过使用 cat命令 显示 /dev/null 的内容然后重定向输出到某个文件，以此来达到清空该文件的目的。</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># cat /dev/null &gt; access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">下面，我们将使用 cp命令 复制 /dev/null 的内容到某个文件来达到清空该文件的目的，具体如下所示：</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># cp /dev/null access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">而下面的命令中， if 代表输入文件，of 代表输出文件。</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># dd if=/dev/null of=access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/70ea792a75a7118195da7c5cbbffaa02.jpg" alt="Linux 下清空或删除大文件/大量文件的几种方法"></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);">4. 使用 echo 命令清空文件<br /></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">在这里，你可以使用 echo命令 将空字符串的内容重定向到文件中，具体如下：</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># echo "" &gt; access.log 或者 # echo &gt; access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">注意：你应该记住空字符串并不等同于 null 。字符串表明它是一个具体的事物，只不过它的内容可能是空的，但 null 则意味着某个事物并不存在。基于这个原因，当你将 echo命令 的输出作为输入重定向到文件后，使用cat命令来查看该文件的内容时，你将看到一个空白行（即一个空字符串）。要将 null 做为输出输入到文件中，你应该使用 -n 选项，这个选项将告诉 echo 不再像上面的那个命令那样输出结尾的那个新行。</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># echo -n "" &gt; access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/8f3e0768b8a2bd485310d82d020d2b1c.jpg" alt="Linux 下清空或删除大文件/大量文件的几种方法"></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);">5. 使用 truncate 命令来清空文件内容<br /></span></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">truncate 可被用来将一个文件缩小或者扩展到某个给定的大小。你可以利用它和 -s 参数来特别指定文件的大小。要清空文件的内容，则在下面的命令中将文件的大小设定为 0:</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># truncate -s 0 access.log</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">我要介绍的就是这么多了。在本文中，我们介绍了几种通过使用一些简单的命令行工具和 shell 重定向机制来清除或清空文件内容的方法。</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/0918191160328d96ce7b877c890c6371.jpg" alt="Linux 下清空或删除大文件/大量文件的几种方法"></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);">6.使用rsync命令<br /></span></span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">假如你有一些特别大的文件要删除，比如nohup.out这样的实时更新的文件，动辄都是几十个G上百G的，也可以用rsync来清空大文件，而且效率比较高。</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">1）创建空文件</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># touch/data/blank.txt</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">2）用rsync清空文件</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># rsync -a --delete-before --progress --stats /root/blank.txt /root/nohup.out</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><strong>快速删除大量文件</strong></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">假如你要在linux下删除大量文件，比如100万、1000万，像/var/spool/clientmqueue/的mail邮件，/usr/local/nginx/proxy_temp的nginx缓存等，那么rm -rf *可能就不好使了。 rsync 可以用来清空目录或文件，如下：</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">1）先建立一个空目录# mkdir/data/blank</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">2）用rsync删除目标目录</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"># rsync --delete-before -d /data/blank/ /var/spool/clientmqueue/</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">这样目标目录很快就被清空了</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;">注：其中--delete-before 接收者在传输之前进行删除操作</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><strong><span lang="zh-cn">为什么rsync能够快速删除</span><span lang="zh-cn">大文件？</span></strong></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span lang="en-us">1</span><span lang="zh-cn">）</span><span lang="zh-cn">rm命令大量调用了lstat64和unlink，可以推测删除每个文件前都从文件系统中做过一次lstat操作。过程：正式删除工作的第一阶段，需要通过getdirentries64调用，分批读取目录（每次大约为4K），在内存中建立rm的文件列表；第二阶段，lstat64确定所有文件的状态；第三阶段，通过unlink执行实际删除。这三个阶段都有比较多的系统调用和文件系统操作。</span></span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span lang="en-us">2</span><span lang="zh-cn">）</span><span lang="zh-cn">rsync所做的系统调用很少</span><span lang="zh-cn">：</span><span lang="zh-cn">没有针对单个文件做lstat和unlink操作。命令执行前期，rsync开启了一片共享内存，通过mmap方式加载目录信息。只做目录同步，不需要针对单个文件做unlink。</span>另外，在其他人的评测里，rm的上下文切换比较多，会造成System CPU占用较多——对于文件系统的操作，简单增加并发数并不总能提升操作速度。&nbsp;总结：频繁做减法不如直接从头来过把文件系统的目录与书籍的目录做类比，rm删除内容时，将目录的每一个条目逐个删除(unlink)，需要循环重复操作很多次；rsync删除内容时，建立好新的空目录，替换掉老目录，基本没开销。</span></p> <p><span style="font-family:'Microsoft YaHei';font-size:16px;"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);">参考：https://blog.csdn.net/liuxiao723846/article/details/51626305</span></span></span></p> <p><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"><span style="color:rgb(51,51,51);background-color:rgb(255,255,255);"></span></span></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78802.htm">宠物领养市场经济可行性分析 宠物领养市场经济可行性分析报告</a></p>
+                                        <p>下一个：<a href="/news/article-79489.htm">济南宠物狗领养中心地址 济南宠物狗领养中心地址电话</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-66872.htm" title="redis专题：redis键值设计、性能优化以及redis连接池配置">redis专题：redis键值设计、性能优化以及redis连接池配置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-v2ray-subscribe.htm" title="3月23日21.8M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接地址分享">3月23日21.8M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-node-share-links.htm" title="2月1日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接地址分享">2月1日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-43322.htm" title="兰州哪里有卖宠物的宠物市场啊（兰州哪里有卖宠物的宠物市场啊）">兰州哪里有卖宠物的宠物市场啊（兰州哪里有卖宠物的宠物市场啊）</a></li>
+                        <li class="py-2"><a href="/news/article-45814.htm" title="深圳市宠物领养之家官网地址电话（深圳宠物领养中心）">深圳市宠物领养之家官网地址电话（深圳宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-38375.htm" title="动物医院管理系统（动物医院部门）">动物医院管理系统（动物医院部门）</a></li>
+                        <li class="py-2"><a href="/news/article-50805.htm" title="成都宠物托运平台有哪些平台好（成都宠物运输比较可靠的公司）">成都宠物托运平台有哪些平台好（成都宠物运输比较可靠的公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-ssr-node.htm" title="3月6日19.7M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接地址分享">3月6日19.7M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-38864.htm" title="宠物领养市场规模 宠物领养市场规模分析">宠物领养市场规模 宠物领养市场规模分析</a></li>
+                        <li class="py-2"><a href="/news/article-61381.htm" title="解决：bash: /root/.bashrc: Permission denied">解决：bash: /root/.bashrc: Permission denied</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
