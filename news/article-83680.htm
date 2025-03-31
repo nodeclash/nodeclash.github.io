@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-83680.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>mysql 锁 读锁 写锁 共享锁 排它锁 表锁 行锁 悲观锁 乐观锁</title>
+        <meta name="description" content="innodb和myisam的区别是innodb支持事务和行锁  按照数据操作类型来分： 读锁：读锁也可以叫（共享锁）字母S 写锁：（排它锁）字母x #创建读锁和写锁   #开启事务 begin;  #" />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-83680.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="mysql 锁 读锁 写锁 共享锁 排它锁 表锁 行锁 悲观锁 乐观锁" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/9a57cc2cf9c41d931c9f249f6d6542db.webp" />
+        <meta property="og:release_date" content="2025-03-29T08:59:05" />
+    <meta property="og:updated_time" content="2025-03-29T08:59:05" />
+        <meta property="og:description" content="innodb和myisam的区别是innodb支持事务和行锁  按照数据操作类型来分： 读锁：读锁也可以叫（共享锁）字母S 写锁：（排它锁）字母x #创建读锁和写锁   #开启事务 begin;  #" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql 锁 读锁 写锁 共享锁 排它锁 表锁 行锁 悲观锁 乐观锁">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/client.htm">客户端</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">mysql 锁 读锁 写锁 共享锁 排它锁 表锁 行锁 悲观锁 乐观锁</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h3>innodb和myisam的区别是innodb支持事务和行锁</h3> </h1> <h3>按照数据操作类型来分：</h3> <p>读锁：读锁也可以叫（共享锁）字母S</p> <p>写锁：（排它锁）字母x</p> <pre><code class="language-sql">#创建读锁和写锁   #开启事务 begin;  #设置加锁的方式  对读取的几率加s锁（读锁） select .... for share; #或 select ..... lock in share Mode;  #对读取的记录加x锁 （写锁）（ select ....  for update;   commit; #或rollback;</code></pre> <p><span style="color:#ff9900;">备注：对于innodb来说 读锁和写锁可以加在表上或者行上</span></p> <h3>按照锁粒度角度划分</h3> <p>表锁：</p> <h3>表级别的s锁 和x锁 （myisam）</h3> <pre><code class="language-sql">#查看当前表有没有加锁 shou open tables;  #对表t加表级别的 S锁  LOCK TABLES t READ ;  #对表t加表级别的 X锁  LOCK TABLES t WRITE ;  #释放锁  unlock tables;</code></pre> <h3><span style="color:#fbd4d0;">备注：innodb也可以但是会性能低</span></h3> <h3>表级别的意向锁&nbsp; &nbsp;innodb</h3> <p>分为：意向共享锁 和 意向排它锁</p> <pre><code class="language-sql">#事务要获取某些行的 S 锁，必须先获得表的 IS 锁  意向共享锁 SELECT column FROM table ... LOCK IN SHARE MODE;  #事务要获取某些行的 X 锁，必须先获得表的 IX 锁 意向排他锁 SELECT column FROM table ... FOR UPDATE;</code></pre> <h3>自增锁 auto_increment</h3> <h3>元数据锁(MDL锁)</h3> <p>当对一个表做增删改查拆作的时候,加MDL读锁:当要对表做结构变更操作的时候,加MDL写锁。”读锁之间不互斥,因此你可以有多个线程同时对一张表增删改查,读写锁之间、写锁之间是互斥的,用来保证变更表结构操作的安全性,解决了DML和DDL操作之间的一致性问题:不需要显式使用,在访问一个表的时候会被自动加上。</p> <h2>行锁：</h2> <p><span style="color:#0d0016;">记录锁：（LOCK_REC_NOT_GAP）记录锁是有S锁和X锁之分的，称之为 S型记录锁 和 X型记录锁 。</span></p> <div><span style="color:#0d0016;">当一个事务获取了一条记录的S型记录锁后，其他事务也可以继续获取该记录的S型记录锁，但不可 以继续获取X型记录锁； 当一个事务获取了一条记录的X型记录锁后，其他事务既不可以继续获取该记录的S型记录锁，也不 可以继续获取X型记录锁。</span></div> <p><span style="color:#0d0016;">间隙锁：（LOCK_GAP）&nbsp;防止插入幻影记录</span></p> <p><span style="color:#0d0016;">临键锁：（LOCK_ORDINARY ）既想锁住某条记录 ，又想阻止其他事务在该记录前边的 间隙插入新记录</span></p> <p>插入意向锁：（LOCK_INSERT_INTENTION）说一个事务在 插入一条记录时需要判断一下插入位置是不是被别的事务加了 gap锁 （ next-key锁 也包含 gap锁 ），如果有的话，插入操作需要等待，直到拥有 gap锁 的那个事务提交。但是InnoDB规定事务在等待的时候也需要在内存中生成一个锁结构，表明有事务想在某个 间隙 中 插入 新记录，但是 现在在等待</p> <h3><strong>页锁：</strong></h3> <div><span style="color:#0d0016;">页锁就是在 页的粒度 上进行锁定，锁定的数据资源比行锁要多，因为一个页中可以有多个行记录。当我 们使用页锁的时候，会出现数据浪费的现象，但这样的浪费最多也就是一个页上的数据行。页锁的开销 介于表锁和行锁之间，会出现死锁。锁定粒度介于表锁和行锁之间，并发度一般</span><span style="color:#880000;">。</span></div> <h3>按照态度划分</h3> <p>悲观锁：悲观锁总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会 阻塞 直到它拿到锁（共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程）。比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁，当其他线程想要访问数据时，都需要阻塞挂起。Java中 synchronized 和 ReentrantLock 等独占锁就是悲观锁思想的实现。</p> <p><span style="color:#fe2c24;">select....&nbsp;for update语句执行过程中所有扫描的行都会被锁上,因此在MySQL中用悲观锁必须确定使用了索引,而不是全表扫描,否则将会把整个表锁住。</span></p> <p>乐观锁：乐观锁认为对同一数据的并发操作不会总发生，属于小概率事件，不用每次都对数据上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，也就是不采用数据库自身的锁机制，而是通过程序来实现。在程序上，我们可以采用 版本号机制 或者 CAS机制 实现。乐观锁适用于多读的应用类型，这样可以提高吞吐量。在Java中 java.util.concurrent.atomic 包下的原子变量类就是使用了乐观锁的一种实现方式：CAS实现的。</p> <p>1. 乐观锁的版本号机制<br /> 在表中设计一个 版本字段 version ，第一次读的时候，会获取 version 字段的取值。然后对数据进行更新或删除操作时，会执行 UPDATE ... SET version=version+1 WHERE version=version 。此时如果已经有事务对这条数据进行了更改，修改就不会成功。<br /> 2. 乐观锁的时间戳机制<br /> 时间戳和版本号机制一样，也是在更新提交的时候，将当前数据的时间戳和更新之前取得的时间戳进行比较，如果两者一致则更新成功，否则就是版本冲突。你能看到乐观锁就是程序员自己控制数据并发操作的权限，基本是通过给数据行增加一个戳（版本号或者时间戳），从而证明当前拿到的数据是否最新。</p> <div><span style="color:#fe2c24;">乐观锁 适合 读操作多 的场景，相对来说写的操作比较少。它的优点在于 程序实现 ， 不存在死锁</span></div> <div><span style="color:#fe2c24;">问题，不过适用场景也会相对乐观，因为它阻止不了除了程序以外的数据库操作。</span></div> <div><span style="color:#fe2c24;">悲观锁 适合 写操作多 的场景，因为写的操作具有 排它性 。采用悲观锁的方式，可以在数据库层</span></div> <div><span style="color:#fe2c24;">面阻止其他事务对该数据的操作权限，防止 读 - 写 和 写 - 写 的冲突。</span></div> <h3>按照加锁方式</h3> <p>显性加锁：<span style="color:#34495e;">通过特定的语句进行加锁，我们一般称之为显示加锁</span></p> <p><span style="color:#34495e;">如：select .... lock in share mode<br /> select .... for update</span></p> <p>隐性加锁：</p> <p>情景一：对于聚簇索引记录来说，有一个 trx_id 隐藏列，该隐藏列记录着最后改动该记录的 事务 id 。那么如果在当前事务中新插入一条聚簇索引记录后，该记录的 trx_id 隐藏列代表的的就是当前事务的 事务id ，如果其他事务此时想对该记录添加 S锁 或者 X锁 时，首先会看一下该记录trx_id 隐藏列代表的事务是否是当前的活跃事务，如果是的话，那么就帮助当前事务创建一个 X 锁 （也就是为当前事务创建一个锁结构， is_waiting 属性是 false ），然后自己进入等待状态（也就是为自己也创建一个锁结构， is_waiting 属性是 true ）。<br /> 情景二：对于二级索引记录来说，本身并没有 trx_id 隐藏列，但是在二级索引页面的 PageHeader 部分有一个 PAGE_MAX_TRX_ID 属性，该属性代表对该页面做改动的最大的 事务id ，如果PAGE_MAX_TRX_ID 属性值小于当前最小的活跃 事务id ，那么说明对该页面做修改的事务都已经提交了，否则就需要在页面中定位到对应的二级索引记录，然后回表找到它对应的聚簇索引记<br /> 录，然后再重复 情景一 的做法。</p> <h3>其他锁：</h3> <p>全局锁：就是对 整个数据库实例 加锁。当你需要让整个库处于 只读状态 的时候，可以使用这个命令，之后其他线程的以下语句会被阻塞：数据更新语句（数据的增删改）、数据定义语句（包括建表、修改表结构等）和更新类事务的提交语句。全局锁的典型使用 场景 是：做 全库逻辑备份 。</p> <pre><code> Flush tables with read lock   #创建指令</code></pre> <p>死锁：是指两个或多个事务在同一资源上相互占用，并请求锁定对方占用的资源，从而导致恶性循环</p> <p>一种策略是，直接进入等待，直到超时。这个超时时间可以通过参数<span style="color:#fe2c24;">innodb_lock_wait_timeout</span>来设置。另一种策略是，发起死锁检测，发现死锁后，主动回滚死锁链条中的某一个事务（将持有最少行级排他锁的事务进行回滚），让其他事务得以继续执行。将参数 innodb_deadlock_detect 设置为on ，表示开启这个逻辑</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82978.htm">动物疫苗接种方法介绍（动物疫苗接种方法介绍视频）</a></p>
+                                        <p>下一个：<a href="/news/article-83681.htm">上海宠物领养网免费领养（上海领养宠物狗的平台）</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-61973.htm" title="穷人能养猫吗现在（穷人能养猫吗现在）">穷人能养猫吗现在（穷人能养猫吗现在）</a></li>
+                        <li class="py-2"><a href="/news/article-47282.htm" title="动物疫苗销售需要什么手续和条件呢（卖动物疫苗利润有多高）">动物疫苗销售需要什么手续和条件呢（卖动物疫苗利润有多高）</a></li>
+                        <li class="py-2"><a href="/news/article-60201.htm" title="java的Integer中也会有缓存">java的Integer中也会有缓存</a></li>
+                        <li class="py-2"><a href="/news/article-59622.htm" title="全国宠物领养中心在哪里（宠物领养中心领养条件是什么）">全国宠物领养中心在哪里（宠物领养中心领养条件是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-44321.htm" title="java项目在本地部署_jenkins部署java项目在本地（三）">java项目在本地部署_jenkins部署java项目在本地（三）</a></li>
+                        <li class="py-2"><a href="/news/article-42826.htm" title="重庆宠物狗领养公司（重庆宠物狗领养中心）">重庆宠物狗领养公司（重庆宠物狗领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-80871.htm" title="动物疫苗多少钱打一针河南省内（动物疫苗多少钱打一针河南省内疫苗）">动物疫苗多少钱打一针河南省内（动物疫苗多少钱打一针河南省内疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-67523.htm" title="动物医院资质级别有哪些标准呢 动物医院资质级别有哪些标准呢图片">动物医院资质级别有哪些标准呢 动物医院资质级别有哪些标准呢图片</a></li>
+                        <li class="py-2"><a href="/news/article-53463.htm" title="动物疫苗公司10强名单 动物疫苗公司10强名单公布">动物疫苗公司10强名单 动物疫苗公司10强名单公布</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-shadowrocket-node.htm" title="2月11日23M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接地址分享">2月11日23M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
