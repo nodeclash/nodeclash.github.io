@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-100632.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>Hadoop C#操作Hbase_在线工具</title>
+        <meta name="description" content="Hbase Hbase是一种NoSql模式的数据库，采用了列式存储。而采用了列存储天然具备以下优势：  可只查涉及的列，且列可作为索引，相对高效 针对某一列的聚合及其方便 同一列的数据类型一致，方便压" />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-100632.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="Hadoop C#操作Hbase_在线工具" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/625bebfbfba16ae57835288745613da3.webp" />
+        <meta property="og:release_date" content="2025-04-21T06:49:46" />
+    <meta property="og:updated_time" content="2025-04-21T06:49:46" />
+        <meta property="og:description" content="Hbase Hbase是一种NoSql模式的数据库，采用了列式存储。而采用了列存储天然具备以下优势：  可只查涉及的列，且列可作为索引，相对高效 针对某一列的聚合及其方便 同一列的数据类型一致，方便压" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hadoop C#操作Hbase_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/client.htm">客户端</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">Hadoop C#操作Hbase_在线工具</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<h2>Hbase</h2> <p>Hbase是一种NoSql模式的数据库，采用了<em><strong>列式存储</strong></em>。而采用了列存储天然具备以下优势：</p> <ol> <li>可只查涉及的列，且列可作为索引，相对高效</li> <li>针对某一列的聚合及其方便</li> <li>同一列的数据类型一致，方便压缩</li> </ol> <p>同时由于列式存储将不同列分开存储，也造成了读取多列效率不高的问题</p> <h2>LSM Tree</h2> <p>说到HBase，我们不得不说其采用的LSM Tree。我们都知道关系数据库中常用的B+Tree，叶子节点有序，但写入时可能存在大量随机写入，因此形成了其读快写慢的特点。</p> <p>而HBase采用了LSM Tree，在读写之间寻找了平衡，损失了部分读取的性能，实现了快速的写入。LSM具体实现如下：</p> <ol> <li>写入WAL日志中（防止数据丢失），同时数据写入内存中，内存中构建一个有顺序的树，HBase采用跳表结构。</li> <li>随着内存中数据逐渐增大，内存中flush到磁盘，形成一个个小树。</li> <li>磁盘中的小树存在数据冗余，且查询时遍历多个小树效率低，LSM定期合并，实现数据合并，而合并的时候，会对数据重新排序，优化读取性能。</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/ffc2bc3fa247f931755fb4ba66f64215.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <h2>HBase架构</h2> <p>HBase中三个核心的Server形成其分布式存储架构。</p> <ol> <li>RegionServer：负责客户端读写请求，客户端直接与其通信</li> <li>HBaseMaser：负责维护RegionServer；表结构的维护</li> <li>Zookeeper：维护集群状态</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/a831eae454b37cc56038762744fc1b08.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <h2>HBase读写操作步骤</h2> <ol> <li>客户端从zookeeper获取哪台RegionServer存储MetaTable（一张特殊表，存储了所有region信息）。</li> <li>客户端查询MetaTable所在的RegionServer，获取哪台RegionServer应负责此次操作的rowKey</li> <li>客户端访问对应的RegionServer实现数据读取</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/cb7c92c3223f35c09d34667a268ae966.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <h2>RegionServer的组成</h2> <ol> <li>WAL：Write Ahead Log，用于存储写操作的日志，用于故障恢复</li> <li>BlockCache：读缓存，用于缓存最常访问数据</li> <li>MemStore：写缓存，会定期flush到磁盘</li> <li>HFile：在HDFS上存储数据，以有序keyvalue形式存储</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/e63f1b34902d0b459a28b95ab2620504.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <h2>HBase存储机制</h2> <ol> <li>表是行的集合。</li> <li>行是列家族的集合。</li> <li>列家族是列的集合。</li> <li>列是键值对的集合。</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/324874f0bfe5216cd03f776ffe6e7591.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <h2>HBase安装</h2> <p>1.下载Hbase2.4.11</p> <p><a title="https://hbase.apache.org/downloads.html" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hbase.apache.org/downloads.html"  target="_blank" rel="nofollow">https://hbase.apache.org/downloads.html</a></p> <p>2.解压</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">tar</span> -zxvf hbase-<span style="color: rgba(128, 0, 128, 1)">2.4</span>.<span style="color: rgba(128, 0, 128, 1)">11</span>-bin.<span style="color: rgba(0, 0, 255, 1)">tar</span>.gz</pre> </div> <p>3.修改环境变量</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">cat</span> conf/hbase-<span style="color: rgba(0, 0, 255, 1)">env</span>.<span style="color: rgba(0, 0, 255, 1)">sh</span><span style="color: rgba(0, 0, 0, 1)"> export JAVA_HOME</span>=/usr/local/java18/jdk1.<span style="color: rgba(128, 0, 128, 1)">8</span>.0_331/</pre> </div> <p>4.修改hbase存储位置</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">cat</span> conf/hbase-<span style="color: rgba(0, 0, 0, 1)">site.xml</span>&lt;property&gt;     &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;     &lt;value&gt;<span style="color: rgba(0, 0, 255, 1)">true</span>&lt;/value&gt;   &lt;/property&gt; &lt;property&gt;    &lt;name&gt;hbase.rootdir&lt;/name&gt;    &lt;value&gt;hdfs:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">localhost:9000/hbase&lt;/value&gt;</span> &lt;/property&gt;</pre> </div> <p>5.启动Hbase</p> <div class="cnblogs_code"> <pre>./bin/start-hbase.<span style="color: rgba(0, 0, 255, 1)">sh</span></pre> </div> <p>6.验证Hbase</p> <div class="cnblogs_code"> <pre>http:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">192.168.43.50:16010/master-status</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/916cdb54556ca70bb64b3429d1b1ecbc.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <p>7.停止Hbase</p> <div class="cnblogs_code"> <pre>./bin/stop-hbase.<span style="color: rgba(0, 0, 255, 1)">sh</span></pre> </div> <h2>HBase Shell访问HBase</h2> <p>官方文档：https://hbase.apache.org/book.html#shell</p> <p>1.进入shell</p> <div class="cnblogs_code"> <pre>./bin/hbase shell</pre> </div> <p>2.查看表</p> <div class="cnblogs_code"> <pre>hbase:<span style="color: rgba(128, 0, 128, 1)">001</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt; list</pre> </div> <p>3.创建表</p> <div class="cnblogs_code"> <pre>#create ‘&lt;table name&gt;’,’&lt;column family&gt;<span style="color: rgba(0, 0, 0, 1)">’  hbase:</span><span style="color: rgba(128, 0, 128, 1)">001</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt; create<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">emp</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">personal data</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">professional data</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)"> Created table emp Took</span><span style="color: rgba(128, 0, 128, 1)">3.4810</span><span style="color: rgba(0, 0, 0, 1)"> seconds</span>=&gt; Hbase::Table - emp</pre> </div> <p>4.创建/更新数据</p> <div class="cnblogs_code"> <pre>#put ‘table name’,’row ’,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">Column family:column name</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">,’new value’  hbase:</span><span style="color: rgba(128, 0, 128, 1)">001</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt; put<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">emp</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">personal data:name</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">raju</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)"> Took</span><span style="color: rgba(128, 0, 128, 1)">1.1807</span> seconds</pre> </div> <p>5.查看数据</p> <div class="cnblogs_code"> <pre>hbase:<span style="color: rgba(128, 0, 128, 1)">001</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt; scan<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">emp</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)"> ROW                                                    COLUMN</span>+<span style="color: rgba(0, 0, 0, 1)">CELL</span><span style="color: rgba(128, 0, 128, 1)">1</span>                                                     column=personal data:name, timestamp=<span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">05</span>-02T09:<span style="color: rgba(128, 0, 128, 1)">55</span>:<span style="color: rgba(128, 0, 128, 1)">38.861</span>, value=<span style="color: rgba(0, 0, 0, 1)">raju</span><span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> row(s) Took</span><span style="color: rgba(128, 0, 128, 1)">1.1758</span> seconds</pre> </div> <div class="cnblogs_code"> <pre>#get ’&lt;table name&gt;<span style="color: rgba(0, 0, 0, 1)">’,’row1’   hbase:</span><span style="color: rgba(128, 0, 128, 1)">002</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt;  get<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">emp</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)"> COLUMN                                                 CELL  personal data:name                                    timestamp</span>=<span style="color: rgba(128, 0, 128, 1)">2022</span>-<span style="color: rgba(128, 0, 128, 1)">05</span>-02T09:<span style="color: rgba(128, 0, 128, 1)">55</span>:<span style="color: rgba(128, 0, 128, 1)">38.861</span>, value=<span style="color: rgba(0, 0, 0, 1)">raju</span><span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> row(s) Took</span><span style="color: rgba(128, 0, 128, 1)">1.3090</span> seconds</pre> </div> <p>6.删除数据</p> <div class="cnblogs_code"> <pre>#delete ‘&lt;table name&gt;’, ‘&lt;row&gt;’, ‘&lt;column name &gt;’, ‘&lt;<span style="color: rgba(0, 0, 255, 1)">time</span> stamp&gt;<span style="color: rgba(0, 0, 0, 1)">’  hbase:</span><span style="color: rgba(128, 0, 128, 1)">001</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt; deleteall<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">emp</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)"> Took</span><span style="color: rgba(128, 0, 128, 1)">0.9424</span> seconds</pre> </div> <h2>C#访问Hbase</h2> <p>C#访问Hbase可以根据<em><a title="https://github.com/apache/hbase/tree/master/hbase-thrift/src/main/resources/org/apache/hadoop/hbase" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/hbase/tree/master/hbase-thrift/src/main/resources/org/apache/hadoop/hbase"  target="_blank" rel="nofollow">thrift文件</a></em>自己生成响应rpc client代码，通过rpc方式访问。</p> <p><a title="https://github.com/apache/hbase/tree/master/hbase-thrift/src/main/resources/org/apache/hadoop/hbase" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/hbase/tree/master/hbase-thrift/src/main/resources/org/apache/hadoop/hbase"  target="_blank" rel="nofollow">https://github.com/apache/hbase/tree/master/hbase-thrift/src/main/resources/org/apache/hadoop/hbase</a></p> <p>也可以启动rest server通过微软的Microsoft.Hbase.Client访问，我们这次使用rest方式访问。</p> <p>1.启动与关闭rest server</p> <div class="cnblogs_code"> <pre>./bin/hbase-daemon.sh<span> start rest ./bin/hbase-daemon.sh stop rest</span></pre> </div> <p>可通过访问http://192.168.43.50:8080/version/cluster验证rest是否启动成功</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/d6b8c3e1e7237500d153227238160fcf.jpg" alt="Hadoop C#操作Hbase_在线工具"></p> <p>2.新增console项目，引入Microsoft.Hbase.Client包</p> <p><a title="https://github.com/hdinsight/hbase-sdk-for-net" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/hdinsight/hbase-sdk-for-net"  target="_blank" rel="nofollow">https://github.com/hdinsight/hbase-sdk-for-net</a></p> <p>3.编写测试demo</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Microsoft.HBase.Client;</span><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Microsoft.HBase.Client.LoadBalancing;</span><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> org.apache.hadoop.hbase.rest.protobuf.generated;</span><span style="color: rgba(0, 0, 255, 1)">var</span> scanOptions =<span style="color: rgba(0, 0, 0, 1)"> RequestOptions.GetDefaultOptions(); scanOptions.Port</span>=<span style="color: rgba(128, 0, 128, 1)">8080</span><span style="color: rgba(0, 0, 0, 1)">; scanOptions.AlternativeEndpoint</span>=<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">/</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">var</span> nodeIPs =<span style="color: rgba(0, 0, 255, 1)">new</span> List&lt;<span style="color: rgba(0, 0, 255, 1)">string</span>&gt;<span style="color: rgba(0, 0, 0, 1)">(); nodeIPs.Add(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">192.168.43.50</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 0, 255, 1)">var</span> client =<span style="color: rgba(0, 0, 255, 1)">new</span> HBaseClient(<span style="color: rgba(0, 0, 255, 1)">null</span>, scanOptions,<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> LoadBalancerRoundRobin(nodeIPs));</span><span style="color: rgba(0, 0, 255, 1)">var</span> version =<span style="color: rgba(0, 0, 0, 1)"> client.GetVersionAsync().Result; Console.WriteLine(version);</span><span style="color: rgba(0, 0, 255, 1)">var</span> testTableSchema =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TableSchema(); testTableSchema.name</span>=<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">mytablename</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">; testTableSchema.columns.Add(</span><span style="color: rgba(0, 0, 255, 1)">new</span> ColumnSchema() { name =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">d</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> }); testTableSchema.columns.Add(</span><span style="color: rgba(0, 0, 255, 1)">new</span> ColumnSchema() { name =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">f</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> }); client.CreateTableAsync(testTableSchema).Wait();</span></pre> </div> <p>通过hbase shell验证表是mytablename否创建成功</p> <div class="cnblogs_code"> <pre>hbase:<span style="color: rgba(128, 0, 128, 1)">001</span>:<span style="color: rgba(128, 0, 128, 1)">0</span>&gt;<span style="color: rgba(0, 0, 0, 1)"> list TABLE emp mytablename</span></pre> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99881.htm">宠物店不好做（宠物店开不下去了）</a></p>
+                                        <p>下一个：<a href="/news/article-100633.htm">塞尔达海拉鲁神庙怎么过（塞尔达传说海拉鲁神庙）</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-82266.htm" title="动物疫苗类型主要分为哪三种类型（动物疫苗的种类和制备原理）">动物疫苗类型主要分为哪三种类型（动物疫苗的种类和制备原理）</a></li>
+                        <li class="py-2"><a href="/news/article-93158.htm" title="猫抓伤主人会愧疚吗（小猫把人当妈妈的五种行为）">猫抓伤主人会愧疚吗（小猫把人当妈妈的五种行为）</a></li>
+                        <li class="py-2"><a href="/news/article-102850.htm" title="动物注射疫苗后过敏反应的处理方法是 动物注射疫苗后过敏反应的处理方法是什么">动物注射疫苗后过敏反应的处理方法是 动物注射疫苗后过敏反应的处理方法是什么</a></li>
+                        <li class="py-2"><a href="/news/article-98380.htm" title="MySQL SELECT子句中如何使用Groups函数？">MySQL SELECT子句中如何使用Groups函数？</a></li>
+                        <li class="py-2"><a href="/news/article-87276.htm" title="领养宠物是不是永久的（领养宠物是不是永久的保护）">领养宠物是不是永久的（领养宠物是不是永久的保护）</a></li>
+                        <li class="py-2"><a href="/news/article-101253.htm" title="猫疫苗去宠物店打还是宠物医院打好（宠物医院猫咪打疫苗）">猫疫苗去宠物店打还是宠物医院打好（宠物医院猫咪打疫苗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-node-share-links.htm" title="3月9日20.9M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接地址分享">3月9日20.9M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-86555.htm" title="动物防疫站打疫苗导致死亡猪死亡 猪打防疫针死了,兽医有赔偿吗">动物防疫站打疫苗导致死亡猪死亡 猪打防疫针死了,兽医有赔偿吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-shadowrocket-node.htm" title="4月9日21.2M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接地址分享">4月9日21.2M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-node-subscribe.htm" title="4月1日20.9M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接地址分享">4月1日20.9M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">67</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
