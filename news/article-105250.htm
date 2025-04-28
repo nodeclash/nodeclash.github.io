@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodeclash.github.io/news/article-105250.htm" />
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- ========== Page Title ========== -->
+    <title>C++11（一）</title>
+        <meta name="description" content="????????????各位大佬大家好，我是猪皮兄弟????????????  文章目录  一、列表初始化   initializer_list   二、声明   1.auto 2.decltype " />
+        <link rel="icon" href="/assets/website/img/nodeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="NodeClash节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodeclash.github.io/news/article-105250.htm" />
+    <meta property="og:site_name" content="NodeClash节点订阅站" />
+    <meta property="og:title" content="C++11（一）" />
+    <meta property="og:image" content="https://nodeclash.github.io/uploads/20240306/c351eb5631af2891637567b0876ec4e1.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:25:10" />
+    <meta property="og:updated_time" content="2025-04-27T08:25:10" />
+        <meta property="og:description" content="????????????各位大佬大家好，我是猪皮兄弟????????????  文章目录  一、列表初始化   initializer_list   二、声明   1.auto 2.decltype " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++11（一）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="/assets/website/css/nodeclash/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/themify-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/flaticon-set.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/elegant-icons.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/magnific-popup.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/animate.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/bootsnav.css" rel="stylesheet" />
+    <link href="/assets/website/css/nodeclash/style.css" rel="stylesheet">
+    <link href="/assets/website/css/nodeclash/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- ========== End Stylesheet ========== -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/website/js/frontend/nodeclash/html5/html5shiv.min.js"></script>
+      <script src="/assets/website/js/frontend/nodeclash/html5/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S1CLRGCWE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7S1CLRGCWE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Header 
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default attr-border navbar-sticky dark bootsnav">
+
+            <div class="container-full">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                            <img src="/assets/website/img/nodeclash/logo-s.png" class="logo" alt="Logo">
+                            Node Clash                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                                                <li>
+                            <a href="/">首页</a>
+                        </li>
+                                                <li>
+                            <a href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li>
+                            <a href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li>
+                            <a href="/client.htm">客户端</a>
+                        </li>
+                                                <li>
+                            <a href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gray text-center shadow dark text-light bg-cover" style="background-image: url(/assets/website/img/nodeclash/banner/26.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 style="word-break: break-all;">C++11（一）</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fas fa-home"></i> 首页</a></li>
+                        <li><a href="/news/"> 新闻资讯</a></li>
+                        <li class="active">正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area single full-blog full-blog default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-items">
+                        <div class="row">
+                            <div class="blog-content col-lg-10 offset-lg-1 col-md-12">
+                                <div class="item">
+                                    <div class="blog-item-box">
+                                        <!-- Start Post Thumb -->
+                                        <div class="content">
+                                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>????????????<font color="red"><strong>各位大佬大家好，我是猪皮兄弟</strong></font>????????????<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230202/5d59a991b3014e4d2b9ac5c6a4a5a0b2.jpg" alt="C++11（一）"></p> <div class="toc"> <h3>文章目录</h3> <ul> <li>一、列表初始化</li> <li> <ul> <li>initializer_list</li> </ul> </li> <li>二、声明</li> <li> <ul> <li>1.auto</li> <li>2.decltype</li> <li>3.nullptr</li> </ul> </li> <li>三、C++11 STL中的变化</li> <li> <ul> <li>1.array</li> <li>2.forward_list</li> <li>3.STL其他变化</li> </ul> </li> <li>四、C++关键字新功能</li> <li> <ul> <li>1.defualt强制生成</li> <li>2.delete</li> <li>3.final</li> <li>4.override</li> </ul> </li> </ul> </div> </h1> <p>之前呢{}就是对于结构体和数组进行统一地列表初始值设定<br /> C++11扩大了用大括号括起来地列表初始化的使用范围，使其可对所有的内置类型和用户自定义类型，使用列表初始化时，可添加等号，也可以不加</p> <pre><code class="prism language-cpp">strcut Point <span class="token punctuation">{<!-- --></span> 	<span class="token function">Point</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span> 		<span class="token operator">:</span><span class="token function">_x</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> 		<span class="token punctuation">,</span><span class="token function">_y</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span> 	<span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span>   <span class="token keyword">int</span> _x<span class="token punctuation">;</span>   <span class="token keyword">int</span> _y<span class="token punctuation">;</span>   <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>      <span class="token keyword">int</span> x1<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">int</span> x2<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">3</span><span class="token punctuation">}</span>     <span class="token keyword">int</span> x3<span class="token punctuation">{<!-- --></span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>          <span class="token keyword">int</span> array1<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">//直接就去掉=</span>     <span class="token keyword">int</span> array2<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>          Point <span class="token function">p</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//调用构造函数初始化</span>     Point p<span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>     Point p <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>          <span class="token comment">//C++11种列表初始化也可以适用于new表达式中</span>     <span class="token keyword">int</span><span class="token operator">*</span>pa <span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">{<!-- --></span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h2> initializer_list</h2> <p><strong>{}并不是运算符，所以说并不是重载{}，{}其实是initializer_list</strong></p> <pre><code class="prism language-cpp"><span class="token keyword">auto</span> x<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span> cout<span class="token operator">&lt;&lt;</span><span class="token keyword">typeid</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//initializer_list&lt;int&gt;</span> </code></pre> <p>其实，初始化列表本来用意是给容器用的</p> <pre><code class="prism language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> v1<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> v2<span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span> list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> lt1<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span> list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> lt2<span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span> </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230202/6d5456dd648fe1cb8e07c62ccedc5a44.jpg" alt="C++11（一）"><br /> initializer_list也像是一个容器，可以像迭代器一样的去访问，但是initializer_list是一个写死的数组，不支持push_back和pop_back</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230202/aa34b26ff99cf9d833f3995d5daddb2d.jpg" alt="C++11（一）"><br /> C++11之后，所以的容器都增加了initializer_list的构造函数。<br /><mark>那既然initializer_list主要是为容器而产生的，那结构体/类成员为什么也支持呢</mark></p> <pre><code class="prism language-cpp">vector<span class="token operator">&lt;</span>Date<span class="token operator">&gt;</span> v1<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>d1<span class="token punctuation">,</span>d2<span class="token punctuation">,</span>d3<span class="token punctuation">}</span><span class="token punctuation">;</span> vector<span class="token operator">&lt;</span>Date<span class="token operator">&gt;</span> v2<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span> </code></pre> <p>同时，initializer_list也能够初始化pair，所以map也能够使用</p> </h1> <h2> 1.auto</h2> <p><strong>auto就是自动推导类型，但是它不能作为参数的类型自动推导</strong></p> <pre><code class="prism language-cpp"><span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">auto</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//也就是说这是不行的</span> </code></pre> <p>在某些场景下就非常好用，但是也有弊端，auto会降低可读性</p> <pre><code class="prism language-cpp">map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span>string<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>iterator it <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">auto</span> it <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <h2> 2.decltype</h2> <p><strong>declare type<br /> 用户声明类型，也可以理解为推导类型</strong></p> <p>像我们以前使用的typeid(x).name(),它只能够知道是哪种类型，但是不能够拿这个得到的字符串再去定义对象</p> <pre><code class="prism language-cpp"><span class="token keyword">typeid</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> y<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span><span class="token comment">//报错</span> <span class="token comment">//而C++11新增了关键字decltype来解决</span> <span class="token keyword">decltype</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> y<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span> </code></pre> <h2> 3.nullptr</h2> <p><mark>源码中，有这样一段代码</mark></p> <pre><code class="prism language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression"><span class="token constant">NULL</span></span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">__cplusplus</span><span class="token comment">//</span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">NULL</span> <span class="token expression"><span class="token number">0</span></span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span>              </span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">NULL</span> <span class="token expression"><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span>           </span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span> </code></pre> <p>也就是说，在C++中，C的NULL被定义成了字面量0，因为0既能代表常量也能代表地址，由于清晰安全的角度，C++11中有了nullptr，用于表示空指针。</p> </h1> <blockquote> <p><strong>C++11新增容器<br /> 1.unordered_set<br /> 2.unordered_multiset<br /> 3.unordered_map<br /> 4.unordered_multimap<br /> 5.array<br /> 6.forword_list</strong></p> </blockquote> <h2> 1.array</h2> <p>array相比如vector而言，是一个静态的数组</p> <pre><code class="prism language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token punctuation">,</span>size_t N<span class="token comment">/*非类型模板参数*/</span><span class="token operator">&gt;</span> <span class="token keyword">class</span> <span class="token class-name">array</span><span class="token punctuation">;</span> </code></pre> <p><mark>为什么有array？</mark><br /><strong>①希望数组容器化<br /> ②C的数组边界问题<br /> C的数组采用的方式是设岗抽查，只有少量的越界能够查出来，比如开了一个a[10]的数组，可能方式a[15]并不会被检查到。而给一个array，超过非类型模板N，就被查到了，所以array检查严格。</strong></p> <p><mark>但是array并没有什么用处</mark><br /> 因为array并不如vector，可以用vector+resize来进行开空间，效率上也得到了保证。而且array是开在栈上的，如果数据量过大，还会栈溢出</p> <h2> 2.forward_list</h2> <p>forword_list就是单向链表，比起list双向循环链表来说，forword_list优势就只在于节省了一点空间，它只提供了insert_after在末尾插入，所以实际如果没有特殊需求，是不会用forward_list的</p> <h2> 3.STL其他变化</h2> <p>①增加initializer_list的初始化化<br /> ②比较鸡肋的接口cbegin，cend<br /> ③移动构造和移动赋值（后面说）<br /> ④右值引用参数的插入<br /> ⑤手动缩容shrink_to_fit<br /> 等等</p> </h1> <h2> 1.defualt强制生成</h2> <pre><code class="prism language-cpp"><span class="token function">Person</span><span class="token punctuation">(</span>Person<span class="token operator">&amp;&amp;</span>p<span class="token punctuation">)</span> <span class="token operator">=</span> defualt<span class="token punctuation">;</span> <span class="token comment">//因为移动构造需要满足条件才自动生成</span> <span class="token comment">//所以这里可以强制生成</span> </code></pre> <h2> 2.delete</h2> <p>delete除了释放资源之外，还有另外的作用<br /> 比如我需要防拷贝</p> <pre><code class="prism language-cpp"><span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">const</span> Person<span class="token operator">&amp;</span> p <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token keyword">delete</span><span class="token punctuation">;</span> Person<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Person<span class="token operator">&amp;</span>p<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token keyword">delete</span><span class="token punctuation">;</span> <span class="token comment">//让编译不准生成</span> </code></pre> <h2> 3.final</h2> <p>①修饰类，表示最终类<br /> ②修饰虚函数，表示该虚函数不能被重写</p> <h2> 4.override</h2> <p>放在函数后面，表示它必须去重写某个父类的虚函数，如果达不到该条件，就进行报错。</p> <p></p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104474.htm">宠物领养电子合同模板图片 宠物领养电子合同模板图片大全</a></p>
+                                        <p>下一个：<a href="/news/article-105251.htm">C#中的委托和事件_C#教程</a></p>
+                                    </div>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-95460.htm" title="哪里能免费领养宠物猫咪（去哪里免费领养猫咪）">哪里能免费领养宠物猫咪（去哪里免费领养猫咪）</a></li>
+                        <li class="py-2"><a href="/news/article-105251.htm" title="C#中的委托和事件_C#教程">C#中的委托和事件_C#教程</a></li>
+                        <li class="py-2"><a href="/news/article-75404.htm" title="领养宠物协议合法吗知乎（领养宠物协议书在法律上属于什么合同）">领养宠物协议合法吗知乎（领养宠物协议书在法律上属于什么合同）</a></li>
+                        <li class="py-2"><a href="/news/article-66251.htm" title="动物疫病预防控制中心忙不忙（动物疫病预防控制中心给宠物看病吗）">动物疫病预防控制中心忙不忙（动物疫病预防控制中心给宠物看病吗）</a></li>
+                        <li class="py-2"><a href="/news/article-100633.htm" title="塞尔达海拉鲁神庙怎么过（塞尔达传说海拉鲁神庙）">塞尔达海拉鲁神庙怎么过（塞尔达传说海拉鲁神庙）</a></li>
+                        <li class="py-2"><a href="/news/article-76742.htm" title="动物防疫补免（动物防疫补免新闻稿标题）">动物防疫补免（动物防疫补免新闻稿标题）</a></li>
+                        <li class="py-2"><a href="/news/article-104473.htm" title="三国杀新武将台词（三国杀武将台词代码大全）">三国杀新武将台词（三国杀武将台词代码大全）</a></li>
+                        <li class="py-2"><a href="/news/article-96911.htm" title="动物疫苗冷藏温度是多少摄氏度（动物疫苗在常温下能放多久）">动物疫苗冷藏温度是多少摄氏度（动物疫苗在常温下能放多久）</a></li>
+                        <li class="py-2"><a href="/news/article-82265.htm" title="啥属相不能养狗（哪个属相不能养狗）">啥属相不能养狗（哪个属相不能养狗）</a></li>
+                        <li class="py-2"><a href="/news/article-84403.htm" title="动物疫苗接种时间表格模板图（动物接种疫苗多少钱）">动物疫苗接种时间表格模板图（动物接种疫苗多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">79</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+        <!-- Star Footer
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            NodeClash节点订阅站 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right link">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- End Footer-->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="/assets/website/js/frontend/nodeclash/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.appear.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/modernizr.custom.13711.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/progress-bar.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/count-to.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/YTPlayer.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/loopcounter.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/bootsnav.js"></script>
+    <script src="/assets/website/js/frontend/nodeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
