@@ -1,4 +1,4 @@
-# 5月31日22.9M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接地址分享  更新时间 2025-05-31 09:38:04
+# 6月5日19.8M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接地址分享  更新时间 2025-06-05 09:28:49
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://nodeclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://nodeclash.github.io/uploads/2025/05/0-20250531.yaml
-- https://nodeclash.github.io/uploads/2025/05/1-20250531.yaml
-- https://nodeclash.github.io/uploads/2025/05/2-20250531.yaml
-- https://nodeclash.github.io/uploads/2025/05/3-20250531.yaml
-- https://nodeclash.github.io/uploads/2025/05/4-20250531.yaml
+- https://nodeclash.github.io/uploads/2025/06/0-20250605.yaml
+- https://nodeclash.github.io/uploads/2025/06/1-20250605.yaml
+- https://nodeclash.github.io/uploads/2025/06/2-20250605.yaml
+- https://nodeclash.github.io/uploads/2025/06/3-20250605.yaml
+- https://nodeclash.github.io/uploads/2025/06/4-20250605.yaml
 
 ### V2ray订阅链接
 
-- https://nodeclash.github.io/uploads/2025/05/0-20250531.txt
-- https://nodeclash.github.io/uploads/2025/05/1-20250531.txt
-- https://nodeclash.github.io/uploads/2025/05/2-20250531.txt
-- https://nodeclash.github.io/uploads/2025/05/3-20250531.txt
-- https://nodeclash.github.io/uploads/2025/05/4-20250531.txt
+- https://nodeclash.github.io/uploads/2025/06/0-20250605.txt
+- https://nodeclash.github.io/uploads/2025/06/1-20250605.txt
+- https://nodeclash.github.io/uploads/2025/06/2-20250605.txt
+- https://nodeclash.github.io/uploads/2025/06/3-20250605.txt
+- https://nodeclash.github.io/uploads/2025/06/4-20250605.txt
 
 ### Sing-box订阅链接
 
-- https://nodeclash.github.io/uploads/2025/05/20250531.json
+- https://nodeclash.github.io/uploads/2025/06/20250605.json
 
 ## 更多clash节点订阅 ：
 
