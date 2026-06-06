@@ -340,14 +340,9 @@ A5：下载官方渠道的软件，避免使用未知来源，设置复杂密码
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
     <div class="panel-body">
-        AEAD 加密能防止流量被篡改或重放，并隐藏流量特征。在高封锁网络中，使用 AEAD 可以提高节点稳定性和长期可用性，同时确保数据安全和隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何识别节点是否被封锁或限速？</h5></div>
-    <div class="panel-body">
-        通过对比不同节点的 speedtest、ping、下载测速以及 traceroute 路由变化来判断；若多个节点同时异常可能是本地网络问题，单个节点异常则可能被封锁或运营商限速，应尝试更换端口或传输方式。<hr />    </div>
+        PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 混淆方式如何提升抗封锁能力？</h5></div>
@@ -355,9 +350,34 @@ A5：下载官方渠道的软件，避免使用未知来源，设置复杂密码
         混淆方式可将流量伪装成正常 HTTPS 或 HTTP 数据，降低被 DPI 检测风险。合理选择协议和混淆组合，可以提升节点稳定性和长期可用性，确保科学上网顺畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 是否支持应用分流？</h5></div>
+    <div class="panel-body">
+        支持。Surfboard 可通过策略组和规则文件将不同应用流量分配到指定节点，保证游戏、视频和浏览器流量走最优节点，提高访问速度和网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
+    <div class="panel-body">
+        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何识别节点是否被封锁或限速？</h5></div>
+    <div class="panel-body">
+        通过对比不同节点的 speedtest、ping、下载测速以及 traceroute 路由变化来判断；若多个节点同时异常可能是本地网络问题，单个节点异常则可能被封锁或运营商限速，应尝试更换端口或传输方式。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 是什么？</h5></div>
+    <div class="panel-body">
+        Mihomo 是 Clash Premium 的开源替代项目，兼容原版 Clash 配置文件并扩展了部分新功能。它性能优异、内存占用低，适用于希望自定义构建代理环境的高级用户。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 支持哪些类型的分流规则？</h5></div>
     <div class="panel-body">
         Sing-box 支持域名、IP、端口、协议类型、用户标签等多种分流规则。结合策略组，可实现精细化流量管理，满足视频加速、广告屏蔽和游戏优化等多样化需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
+    <div class="panel-body">
+        AEAD 加密能防止流量被篡改或重放，并隐藏流量特征。在高封锁网络中，使用 AEAD 可以提高节点稳定性和长期可用性，同时确保数据安全和隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS 的 Flow 参数有什么作用？</h5></div>
@@ -367,27 +387,7 @@ A5：下载官方渠道的软件，避免使用未知来源，设置复杂密码
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 连接延迟过高该如何优化？</h5></div>
     <div class="panel-body">
-        可尝试切换传输协议（如 WS、gRPC）、调整 MTU 或启用 MUX 多路复用功能。同时检查服务器地理位置、带宽和延迟，并选择最优节点以降低延迟。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 是什么？</h5></div>
-    <div class="panel-body">
-        Mihomo 是 Clash Premium 的开源替代项目，兼容原版 Clash 配置文件并扩展了部分新功能。它性能优异、内存占用低，适用于希望自定义构建代理环境的高级用户。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
-    <div class="panel-body">
-        PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
-    <div class="panel-body">
-        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 是否支持应用分流？</h5></div>
-    <div class="panel-body">
-        支持。Surfboard 可通过策略组和规则文件将不同应用流量分配到指定节点，保证游戏、视频和浏览器流量走最优节点，提高访问速度和网络稳定性。    </div>
+        可尝试切换传输协议（如 WS、gRPC）、调整 MTU 或启用 MUX 多路复用功能。同时检查服务器地理位置、带宽和延迟，并选择最优节点以降低延迟。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -443,16 +443,16 @@ A5：下载官方渠道的软件，避免使用未知来源，设置复杂密码
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-4-12-node-share.htm" title="4月12日20.8M/S|Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点每天更新订阅链接地址分享">4月12日20.8M/S|Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-27-free-high-speed-nodes.htm" title="5月27日20.5M/S|Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/Clash节点/V2ray节点免费节点每天更新订阅链接地址分享">5月27日20.5M/S|Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/Clash节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-15-free-subscribe-node.htm" title="5月15日23M/S|Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享">5月15日23M/S|Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-6-free-clash.htm" title="6月6日19.4M/S|Trojan节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享">6月6日19.4M/S|Trojan节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-8-free-v2ray-subscribe.htm" title="5月8日19.8M/S|SSR节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点免费节点每天更新订阅链接地址分享">5月8日19.8M/S|SSR节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-5-31-free-v2ray.htm" title="5月31日18M/S|Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点免费节点每天更新订阅链接地址分享">5月31日18M/S|Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-11-node-share-links.htm" title="5月11日22M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享">5月11日22M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-21-free-v2ray.htm" title="4月21日21.4M/S|Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点免费节点每天更新订阅链接地址分享">4月21日21.4M/S|Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-19-clash-node-daily-updates.htm" title="5月19日22M/S|Singbox节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点/V2ray节点免费节点每天更新订阅链接地址分享">5月19日22M/S|Singbox节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-5-12-free-node-subscribe-links.htm" title="5月12日21.7M/S|Clash节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点免费节点每天更新订阅链接地址分享">5月12日21.7M/S|Clash节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-10-free-v2ray.htm" title="5月10日22.4M/S|Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接地址分享">5月10日22.4M/S|Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-22-free-node-subscribe-links.htm" title="5月22日19.7M/S|V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点免费节点每天更新订阅链接地址分享">5月22日19.7M/S|V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-29-free-v2ray.htm" title="4月29日18.6M/S|Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Trojan节点免费节点每天更新订阅链接地址分享">4月29日18.6M/S|Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-30-free-node-subscribe-links.htm" title="4月30日20M/S|SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点免费节点每天更新订阅链接地址分享">4月30日20M/S|SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-17-free-ssr-subscribe.htm" title="4月17日22.6M/S|Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点免费节点每天更新订阅链接地址分享">4月17日22.6M/S|Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-1-free-v2ray-subscribe.htm" title="6月1日18M/S|Shadowrocket节点/SSR节点/Clash节点/Singbox节点/V2ray节点/Trojan节点免费节点每天更新订阅链接地址分享">6月1日18M/S|Shadowrocket节点/SSR节点/Clash节点/Singbox节点/V2ray节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-11-node-share-links.htm" title="5月11日22M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享">5月11日22M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-5-node-share.htm" title="5月5日18.3M/S|Clash节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享">5月5日18.3M/S|Clash节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -464,13 +464,10 @@ A5：下载官方渠道的软件，避免使用未知来源，设置复杂密码
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                     </ul>
     </div>
