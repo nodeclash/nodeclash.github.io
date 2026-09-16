@@ -375,14 +375,19 @@ Clash拥有Windows、macOS、Linux、iOS、Android等多个版本，满足不同
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
+    <div class="panel-body">
+        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 的重写规则能做什么？</h5></div>
     <div class="panel-body">
         重写（Rewrite）可用于修改请求头、屏蔽广告、替换响应内容等。通过正则匹配目标请求可实现页面定制与功能增强，但应谨慎使用以避免影响正常网站加载与安全验证。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 如何实现智能分流？</h5></div>
     <div class="panel-body">
-        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
+        PassWall2 通过自定义规则文件控制流量走向。可根据目标域名、国家或 IP 范围自动判断走代理或直连。用户还能加载社区规则，实现类似 Clash 的高效路由分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 与 Clash 有什么关系？</h5></div>
@@ -390,14 +395,9 @@ Clash拥有Windows、macOS、Linux、iOS、Android等多个版本，满足不同
         Surfboard 是一款基于 Clash 核心的 iOS 应用，专为苹果用户设计。它通过友好的界面实现分流管理、节点切换和延迟测试等功能。与 Clash 类似，Surfboard 也支持订阅更新和多种代理协议，兼容性非常好。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 能否手动添加节点？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何精确匹配端口流量？</h5></div>
     <div class="panel-body">
-        Potatso Lite 支持手动添加 Shadowsocks 节点。用户在“配置”中选择添加节点，输入服务器、端口、加密方式等信息即可建立连接，适合手动管理单个线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何实现智能分流？</h5></div>
-    <div class="panel-body">
-        PassWall2 通过自定义规则文件控制流量走向。可根据目标域名、国家或 IP 范围自动判断走代理或直连。用户还能加载社区规则，实现类似 Clash 的高效路由分流。<hr />    </div>
+        Sing-box 支持按端口设置流量分流规则，将不同类型流量分配到不同节点。结合策略组使用，可提高访问速度和稳定性，实现精准流量管理和优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 如何降低移动网络延迟？</h5></div>
@@ -410,19 +410,19 @@ Clash拥有Windows、macOS、Linux、iOS、Android等多个版本，满足不同
         支持。Nekoray 可以通过订阅 URL 自动下载节点，并根据用户配置更新本地节点列表。定期更新确保节点始终可用，减少手动维护的麻烦，提高使用便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 ACL4SSR 规则与 Rule Provider 有何区别？</h5></div>
-    <div class="panel-body">
-        ACL4SSR 是第三方规则集合，专注于分流国内外网站。Rule Provider 是 Clash 的订阅机制，允许自动更新远程规则。二者可以结合使用，实现灵活分流管理。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何精确匹配端口流量？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按端口设置流量分流规则，将不同类型流量分配到不同节点。结合策略组使用，可提高访问速度和稳定性，实现精准流量管理和优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>V2RayN 订阅更新后节点重复如何清理？</h5></div>
     <div class="panel-body">
-        V2RayN 在导入订阅时有时会产生重复节点，可以点击右键菜单选择“删除重复项”。若仍存在旧节点缓存，可清空配置文件夹内的 history.json 并重新导入订阅，保证节点列表整洁。    </div>
+        V2RayN 在导入订阅时有时会产生重复节点，可以点击右键菜单选择“删除重复项”。若仍存在旧节点缓存，可清空配置文件夹内的 history.json 并重新导入订阅，保证节点列表整洁。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 能否手动添加节点？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 支持手动添加 Shadowsocks 节点。用户在“配置”中选择添加节点，输入服务器、端口、加密方式等信息即可建立连接，适合手动管理单个线路。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的 ACL4SSR 规则与 Rule Provider 有何区别？</h5></div>
+    <div class="panel-body">
+        ACL4SSR 是第三方规则集合，专注于分流国内外网站。Rule Provider 是 Clash 的订阅机制，允许自动更新远程规则。二者可以结合使用，实现灵活分流管理。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -476,16 +476,16 @@ Clash拥有Windows、macOS、Linux、iOS、Android等多个版本，满足不同
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-free-ssr-subscribe.htm" title="8月14日21.6M/S|V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享">8月14日21.6M/S|V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-30-free-shadowrocket-node.htm" title="8月30日18.1M/S|Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/SSR节点免费节点每天更新订阅链接地址分享">8月30日18.1M/S|Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-17.htm" title="8月17日22.1M/S|Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接地址分享">8月17日22.1M/S|Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-node-subscribe.htm" title="8月16日22M/S|V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接地址分享">8月16日22M/S|V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-6-clash-v2ray-ss-ssr.htm" title="8月6日22.4M/S|V2ray节点/Trojan节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点每天更新订阅链接地址分享">8月6日22.4M/S|V2ray节点/Trojan节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-1.htm" title="9月1日22.5M/S|Shadowrocket节点/V2ray节点/Trojan节点/Clash节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享">9月1日22.5M/S|Shadowrocket节点/V2ray节点/Trojan节点/Clash节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-28-free-clash.htm" title="8月28日21.4M/S|Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点/Trojan节点免费节点每天更新订阅链接地址分享">8月28日21.4M/S|Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-8-11.htm" title="8月11日18.5M/S|Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享">8月11日18.5M/S|Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-8-13.htm" title="8月13日19.6M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享">8月13日19.6M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-8-23.htm" title="8月23日19.8M/S|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点免费节点每天更新订阅链接地址分享">8月23日19.8M/S|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-19.htm" title="8月19日20.4M/S|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点免费节点每天更新订阅链接地址分享">8月19日20.4M/S|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-8-clash-node-daily-updates.htm" title="8月8日20.7M/S|SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享">8月8日20.7M/S|SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-v2ray-subscribe-2026-8-15.htm" title="8月15日19.7M/S|SSR节点/V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接地址分享">8月15日19.7M/S|SSR节点/V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-node-subscribe.htm" title="9月2日19M/S|Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享">9月2日19M/S|Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-9.htm" title="8月9日22.8M/S|Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Trojan节点免费节点每天更新订阅链接地址分享">8月9日22.8M/S|Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-9-9.htm" title="9月9日18.4M/S|Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接地址分享">9月9日18.4M/S|Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-8-7.htm" title="8月7日22.5M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点免费节点每天更新订阅链接地址分享">8月7日22.5M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-v2ray.htm" title="9月6日19.4M/S|Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点免费节点每天更新订阅链接地址分享">9月6日19.4M/S|Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-9-5.htm" title="9月5日20.4M/S|V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点每天更新订阅链接地址分享">9月5日20.4M/S|V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -497,7 +497,7 @@ Clash拥有Windows、macOS、Linux、iOS、Android等多个版本，满足不同
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
