@@ -198,21 +198,6 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的规则模式有哪些？</h5></div>
-    <div class="panel-body">
-        Clash 提供三种主要模式：Global（全局代理）、Rule（规则代理）和Direct（直连）。全局模式会让所有流量通过代理；规则模式根据规则文件自动分流；直连模式则完全不经过代理。用户可根据需求灵活切换。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持 Clash 规则格式的解析，用户可直接导入 Clash 的 YAML 配置文件进行使用。虽然部分高级参数需要调整，但大多数分流和策略配置都能自动识别，便于迁移。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>当 V2Ray 报错 inbound 没有监听，可能是哪些配置问题？</h5></div>
-    <div class="panel-body">
-        检查 inbound 配置是否包含正确的 port、protocol 与 listen 字段；确认没有端口冲突或权限问题（非 root 绑定 1024 以下端口会失败）；查看日志中具体错误信息并根据提示修复配置。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 如何结合策略组实现自动节点切换？</h5></div>
     <div class="panel-body">
         PassWall2 会定期测试节点延迟和丢包率，结合策略组自动切换到最优节点。无需手动干预即可保证网页、视频和游戏流量高速稳定访问，优化整体网络体验。<hr />    </div>
@@ -223,14 +208,19 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         QuantumultX 可根据 TCP、UDP 或特定应用协议分流流量，结合策略组选择节点。这样可以为游戏、视频或广告屏蔽等应用提供最佳网络体验，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow TUN 模式如何拦截全局流量？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 的 MITM 功能如何使用？</h5></div>
     <div class="panel-body">
-        TUN 模式会拦截系统 IP 层的所有流量，实现全局代理。相比 SOCKS5 只影响部分应用，TUN 可以覆盖游戏、视频和浏览器等所有流量，提高科学上网体验的全面性。<hr />    </div>
+        QuantumultX 的 MITM（中间人）功能可拦截 HTTPS 流量，用于修改或分析请求与响应。开启时需安装客户端生成的根证书，确保能正确解析加密数据。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的节点延迟过高怎么办？</h5></div>
+    <div class="panel-heading"><h5>当 V2Ray 报错 inbound 没有监听，可能是哪些配置问题？</h5></div>
     <div class="panel-body">
-        可通过策略组切换低延迟节点，或调整传输协议和端口。检查服务器网络和防火墙设置，确保网络通畅。必要时可启用 MUX 功能减少短连接延迟，提高整体网络体验。<hr />    </div>
+        检查 inbound 配置是否包含正确的 port、protocol 与 listen 字段；确认没有端口冲突或权限问题（非 root 绑定 1024 以下端口会失败）；查看日志中具体错误信息并根据提示修复配置。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的规则模式有哪些？</h5></div>
+    <div class="panel-body">
+        Clash 提供三种主要模式：Global（全局代理）、Rule（规则代理）和Direct（直连）。全局模式会让所有流量通过代理；规则模式根据规则文件自动分流；直连模式则完全不经过代理。用户可根据需求灵活切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 支持订阅更新吗？</h5></div>
@@ -238,14 +228,24 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         支持。Matsuri 内置订阅更新模块，可自动检测链接变化并定期刷新节点。用户还可手动点击更新按钮同步最新配置，保持网络连接的可用性与速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的 MITM 功能如何使用？</h5></div>
-    <div class="panel-body">
-        QuantumultX 的 MITM（中间人）功能可拦截 HTTPS 流量，用于修改或分析请求与响应。开启时需安装客户端生成的根证书，确保能正确解析加密数据。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 支持 Trojan 协议吗？</h5></div>
     <div class="panel-body">
-        WinXray 内核基于 Xray-core，因此原生支持 Trojan 协议。用户在导入配置时，只需选择 Trojan 类型节点即可，无需额外插件，非常适合需要 TLS 伪装的环境。    </div>
+        WinXray 内核基于 Xray-core，因此原生支持 Trojan 协议。用户在导入配置时，只需选择 Trojan 类型节点即可，无需额外插件，非常适合需要 TLS 伪装的环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的节点延迟过高怎么办？</h5></div>
+    <div class="panel-body">
+        可通过策略组切换低延迟节点，或调整传输协议和端口。检查服务器网络和防火墙设置，确保网络通畅。必要时可启用 MUX 功能减少短连接延迟，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持 Clash 规则格式的解析，用户可直接导入 Clash 的 YAML 配置文件进行使用。虽然部分高级参数需要调整，但大多数分流和策略配置都能自动识别，便于迁移。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow TUN 模式如何拦截全局流量？</h5></div>
+    <div class="panel-body">
+        TUN 模式会拦截系统 IP 层的所有流量，实现全局代理。相比 SOCKS5 只影响部分应用，TUN 可以覆盖游戏、视频和浏览器等所有流量，提高科学上网体验的全面性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -299,16 +299,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-free-ssr-subscribe.htm" title="8月14日21.6M/S|V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享">8月14日21.6M/S|V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-17.htm" title="8月17日22.1M/S|Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接地址分享">8月17日22.1M/S|Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-16-free-clash.htm" title="9月16日20.4M/S|V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享">9月16日20.4M/S|V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-29.htm" title="9月29日20.1M/S|Clash节点/V2ray节点/Singbox节点/Trojan节点/SSR节点/Shadowrocket节点免费节点每天更新订阅链接地址分享">9月29日20.1M/S|Clash节点/V2ray节点/Singbox节点/Trojan节点/SSR节点/Shadowrocket节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-node-2026-9-21.htm" title="9月21日18M/S|Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点免费节点每天更新订阅链接地址分享">9月21日18M/S|Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-clash-subscribe-2026-9-19.htm" title="9月19日21M/S|Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Trojan节点/Singbox节点免费节点每天更新订阅链接地址分享">9月19日21M/S|Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Trojan节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-10-free-ssr-subscribe.htm" title="9月10日18.7M/S|V2ray节点/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接地址分享">9月10日18.7M/S|V2ray节点/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-node-2026-9-15.htm" title="9月15日21.1M/S|Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点每天更新订阅链接地址分享">9月15日21.1M/S|Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-12-free-clash.htm" title="9月12日22.3M/S|Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接地址分享">9月12日22.3M/S|Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-14-node-share.htm" title="9月14日20M/S|Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点每天更新订阅链接地址分享">9月14日20M/S|Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-ssr-subscribe.htm" title="9月4日19M/S|Singbox节点/SSR节点/Clash节点/V2ray节点/Trojan节点/Shadowrocket节点免费节点每天更新订阅链接地址分享">9月4日19M/S|Singbox节点/SSR节点/Clash节点/V2ray节点/Trojan节点/Shadowrocket节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-8-13.htm" title="8月13日19.6M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享">8月13日19.6M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-22-clash-v2ray-ss-ssr.htm" title="8月22日18.7M/S|SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享">8月22日18.7M/S|SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-22-free-node-subscribe.htm" title="9月22日20.7M/S|Clash节点/Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享">9月22日20.7M/S|Clash节点/Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Singbox节点免费节点每天更新订阅链接地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-26-clash-v2ray-ss-ssr.htm" title="8月26日18.8M/S|Trojan节点/Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接地址分享">8月26日18.8M/S|Trojan节点/Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-16-free-clash.htm" title="9月16日20.4M/S|V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享">9月16日20.4M/S|V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-v2ray-subscribe-2026-9-3.htm" title="9月3日22.7M/S|Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/SSR节点免费节点每天更新订阅链接地址分享">9月3日22.7M/S|Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-20-free-node-subscribe.htm" title="9月20日19.7M/S|Clash节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点免费节点每天更新订阅链接地址分享">9月20日19.7M/S|Clash节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点免费节点每天更新订阅链接地址分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -320,10 +320,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                     </ul>
     </div>
